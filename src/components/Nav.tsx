@@ -1,6 +1,7 @@
-import Link from "@components/Link";
+"use client";
+
 import { useAtom } from "jotai";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import ContentLoader from "react-content-loader";
 import { NAV_ITEMS } from "src/constants/nav-items";
@@ -18,10 +19,12 @@ import {
   XIcon,
 } from "./Icons";
 
+import Link from "@/components/Link";
+
 const LOCATION_LOADER_ID = "location-loader";
 
 const Nav = () => {
-  const { pathname } = useRouter();
+  const pathname = usePathname();
 
   const [playSwitchPageSound] = useSound("/static/sounds/switch-page.mp3");
   const [openOnMobile, setOpenOnMobile] = useState(false);
@@ -87,7 +90,7 @@ const Nav = () => {
                       </LocationLink>
                       <PulsingDot />
                     </RelocationContainer>
-                    <Tooltip visible={showTooltip}>
+                    <Tooltip $visible={showTooltip}>
                       {"Planned relocation"}
                     </Tooltip>
                   </TooltipWrapper>
@@ -316,7 +319,7 @@ const RelocationContainer = styled.div`
   cursor: help;
 `;
 
-const Tooltip = styled.div<{ visible: boolean }>`
+const Tooltip = styled.div<{ $visible: boolean }>`
   position: absolute;
   bottom: 100%;
   left: 50%;
@@ -328,8 +331,8 @@ const Tooltip = styled.div<{ visible: boolean }>`
   font-size: 12px;
   font-weight: 500;
   white-space: nowrap;
-  opacity: ${({ visible }) => (visible ? 1 : 0)};
-  visibility: ${({ visible }) => (visible ? "visible" : "hidden")};
+  opacity: ${({ $visible }) => ($visible ? 1 : 0)};
+  visibility: ${({ $visible }) => ($visible ? "visible" : "hidden")};
   transition:
     opacity 0.2s ease,
     visibility 0.2s ease;

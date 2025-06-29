@@ -1,9 +1,12 @@
-import Link from "@components/Link";
+"use client";
+
 import { animated, useSpring } from "react-spring";
 import { Compagny } from "src/types";
 import styled from "styled-components";
 
 import { ExternalLinkIcon } from "../../../Icons";
+
+import Link from "@/components/Link";
 
 interface Props {
   data: Compagny;

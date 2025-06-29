@@ -1,11 +1,12 @@
-import { Button } from "@components/Button";
-import PageWrapper from "@components/PageWrapper";
+"use client";
+
 import { env } from "env.mjs";
-import { NextPage, NextPageContext } from "next";
 import ErrorPage from "next/error";
-import { NextSeo } from "next-seo";
 import React from "react";
 import styled from "styled-components";
+
+import { Button } from "@/components/Button";
+import PageWrapper from "@/components/page-wrapper";
 
 export type VideoDetailsProps = {
   videoId: string;
@@ -23,7 +24,7 @@ export type VideoDetailsProps = {
   };
 };
 
-const VideoDetails: NextPage<VideoDetailsProps> = ({
+const VideoDetails = ({
   videoId,
   details,
   comments,
@@ -75,16 +76,6 @@ const VideoDetails: NextPage<VideoDetailsProps> = ({
 
   return (
     <PageWrapper>
-      <NextSeo
-        title={details?.title}
-        description={details?.description}
-        openGraph={{
-          type: "video.other",
-          url: `https://youtu.be/${videoId}`,
-          title: details?.title,
-          description: details?.description,
-        }}
-      />
       <DetailsContainer>
         <VideoTitle>{details?.title}</VideoTitle>
         <VideoEmbedWrapper>
@@ -260,38 +251,5 @@ const CommenterAvatar = styled.img`
   margin-right: 8px;
   vertical-align: middle;
 `;
-
-VideoDetails.getInitialProps = async (ctx: NextPageContext) => {
-  const { query } = ctx;
-  const videoId = query.id as string;
-  const videoDetailsURL = `${env.NEXT_PUBLIC_APP_URL}/api/youtube/videos?part=snippet,statistics&id=${videoId}`;
-  const videoCommentsURL = `${env.NEXT_PUBLIC_APP_URL}/api/youtube/commentThreads?part=snippet,replies&videoId=${videoId}&textFormat=html&order=relevance`;
-
-  try {
-    const [detailsResponse, commentsResponse] = await Promise.all([
-      fetch(videoDetailsURL),
-      fetch(videoCommentsURL),
-    ]);
-
-    const data = await detailsResponse.json();
-    const details = data.items[0]?.snippet;
-    const statistics = data.items[0]?.statistics;
-
-    const videoCommentsData = await commentsResponse.json();
-    const comments = videoCommentsData.items;
-    const nextPageToken = videoCommentsData.nextPageToken;
-
-    return { videoId, details, comments, statistics, nextPageToken };
-  } catch (error) {
-    console.error("Error fetching video details:", error);
-    if (ctx.res) ctx.res.statusCode = 404;
-    return {
-      videoId,
-      err: {
-        statusCode: 404,
-      },
-    };
-  }
-};
 
 export default VideoDetails;

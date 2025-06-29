@@ -1,8 +1,9 @@
+import { env } from "env.mjs";
 import { certifications } from "src/data/certifications";
 import compagnies from "src/data/compagnies";
 import { diplomas } from "src/data/diplomas";
 import { technologies } from "src/data/technologies";
-import calculateAge from "src/utils/calculateAge";
+import calculateAge from "src/utils/calculate-age";
 
 import { NAV_ITEMS } from "./nav-items";
 
@@ -84,7 +85,7 @@ You can use the following data to answer questions:
 - Technologies: ${JSON.stringify(technologies)}
 - Diplomas: ${JSON.stringify(diplomas)}
 - Certifications: ${JSON.stringify(certifications)}
-- Current website (you are on): https://antoinek.fr
+- Current website (you are on): ${env.NEXT_PUBLIC_APP_URL}
 - Website sitemap: ${JSON.stringify(NAV_ITEMS)}
 </DATA_SOURCES>
 `;

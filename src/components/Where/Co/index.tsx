@@ -1,3 +1,5 @@
+"use client";
+
 import compagnies from "src/data/compagnies";
 import styled from "styled-components";
 

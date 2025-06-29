@@ -1,31 +1,41 @@
-import GlobalStyle from "@components/GlobalStyle";
-import Head from "@components/Head";
-import { ChevronsRight } from "@components/Icons";
-import Nav from "@components/Nav";
-import SuccessiveType from "@components/SuccessiveType";
+"use client";
+
 import { AnimatePresence, motion } from "framer-motion";
-import { AppProps } from "next/app";
 import React from "react";
 import styled, { StyleSheetManager } from "styled-components";
 import { useLocalStorage } from "usehooks-ts";
 
-const App = ({ Component, pageProps }: AppProps) => {
+import { ChevronsRight } from "@/components/Icons";
+import Nav from "@/components/Nav";
+import GlobalStyle from "@/components/global-style";
+import SuccessiveType from "@/components/successive-type";
+
+export default function ClientLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [introCompleted, setIntroCompleted] = useLocalStorage(
     "v1:intro-completed",
     false,
   );
 
-  const [introEnded, setIntroEnded] = React.useState(introCompleted);
-  const introEndedInitially = React.useRef(introEnded);
+  // Prevent hydration mismatch by using consistent initial state
+  const [introEnded, setIntroEnded] = React.useState(false);
   const [isMounted, setIsMounted] = React.useState(false);
   const [windowHeight, setWindowHeight] = React.useState(0);
+  const introEndedInitially = React.useRef(false);
 
   React.useEffect(() => {
     setIsMounted(true);
+    // Set introEnded based on localStorage after mounting to prevent hydration mismatch
+    setIntroEnded(introCompleted);
+    introEndedInitially.current = introCompleted;
+
     if (typeof window !== "undefined") {
       setWindowHeight(window.innerHeight);
     }
-  }, []);
+  }, [introCompleted]);
 
   React.useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
@@ -52,7 +62,6 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <StyleSheetManager enableVendorPrefixes>
       <GlobalStyle />
-      <Head />
       <Wrapper $isMounted={isMounted}>
         <SuccessiveTypeContainer
           transition={{
@@ -93,15 +102,13 @@ const App = ({ Component, pageProps }: AppProps) => {
         >
           <Nav />
           <ContentWrapper>
-            <AnimatePresence>
-              <Component {...pageProps} />
-            </AnimatePresence>
+            <AnimatePresence>{children}</AnimatePresence>
           </ContentWrapper>
         </MainContent>
       </Wrapper>
     </StyleSheetManager>
   );
-};
+}
 
 const Wrapper = styled.div<{ $isMounted: boolean }>`
   display: flex;
@@ -190,5 +197,3 @@ const ContentWrapper = styled.div`
     }
   }
 `;
-
-export default App;

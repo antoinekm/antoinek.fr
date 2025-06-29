@@ -1,11 +1,13 @@
+"use client";
+
 import { useChat } from "@ai-sdk/react";
-import Link from "@components/Link";
-import PageWrapper from "@components/PageWrapper";
 import { ArrowRight, ArrowUp, ChevronLeft, ChevronRight } from "lucide-react";
 import { marked } from "marked";
-import { NextSeo, WebPageJsonLd } from "next-seo";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+
+import Link from "@/components/Link";
+import PageWrapper from "@/components/page-wrapper";
 
 const SUGGESTED_MESSAGES = [
   "What is your experience?",
@@ -166,19 +168,8 @@ export default function Home() {
   return (
     <PageWrapper noPadding>
       <Container>
-        <NextSeo
-          title={"Developer, designer & youtuber based in Rouen, France"}
-          description={
-            "Connect with a skilled developer specializing in TypeScript, React and digital design. Ask questions about projects, experience, and expertise."
-          }
-        />
-        <WebPageJsonLd
-          description={"Developer, designer & youtuber based in Rouen, France"}
-          id={"https://antoinek.fr"}
-        />
-
         <ChatContainer>
-          <MessagesContainer hasMessages={messages.length > 0}>
+          <MessagesContainer $hasMessages={messages.length > 0}>
             {messages.map((m) => (
               <Message key={m.id} $role={m.role}>
                 <MessageSender>
@@ -199,7 +190,7 @@ export default function Home() {
           </MessagesContainer>
 
           <form onSubmit={handleSubmit}>
-            <ChatInputWrapper isEmpty={messages.length === 0}>
+            <ChatInputWrapper $isEmpty={messages.length === 0}>
               {messages.length === 0 && (
                 <WelcomeHeader>
                   <h1>{"my future is yours, i develop for us."}</h1>
@@ -213,7 +204,7 @@ export default function Home() {
                   onKeyDown={handleKeyDown}
                   placeholder={"Ask me anything..."}
                   autoComplete={"off"}
-                  isLoading={isLoading}
+                  $isLoading={isLoading}
                   rows={messages.length === 0 ? 2 : 1}
                 />
                 <ChatToolbar>
@@ -240,13 +231,13 @@ export default function Home() {
                 </DisclaimerText>
               ) : (
                 <SuggestionsWrapper
-                  showLeftArrow={showLeftArrow}
-                  showRightArrow={showRightArrow}
+                  $showLeftArrow={showLeftArrow}
+                  $showRightArrow={showRightArrow}
                 >
                   {showLeftArrow && (
                     <ScrollArrow
                       onClick={scrollSuggestionsLeft}
-                      position={"left"}
+                      $position={"left"}
                     >
                       <ChevronLeft size={16} />
                     </ScrollArrow>
@@ -268,7 +259,7 @@ export default function Home() {
                   {showRightArrow && (
                     <ScrollArrow
                       onClick={scrollSuggestionsRight}
-                      position={"right"}
+                      $position={"right"}
                     >
                       <ChevronRight size={16} />
                     </ScrollArrow>
@@ -324,14 +315,14 @@ const WelcomeHeader = styled.div`
   }
 `;
 
-const MessagesContainer = styled.div<{ hasMessages: boolean }>`
+const MessagesContainer = styled.div<{ $hasMessages: boolean }>`
   flex: 1;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   padding-top: calc(2rem + 10px);
-  padding-bottom: ${({ hasMessages }) => (hasMessages ? "150px" : "1rem")};
+  padding-bottom: ${({ $hasMessages }) => ($hasMessages ? "150px" : "1rem")};
 
   @media (max-width: 850px) {
     padding-top: calc(65px + 10px);
@@ -463,8 +454,8 @@ const TypingIndicator = styled.div`
 `;
 
 const SuggestionsWrapper = styled.div<{
-  showLeftArrow: boolean;
-  showRightArrow: boolean;
+  $showLeftArrow: boolean;
+  $showRightArrow: boolean;
 }>`
   position: relative;
   width: 100%;
@@ -480,7 +471,7 @@ const SuggestionsWrapper = styled.div<{
     width: 40px;
     background: linear-gradient(to right, #10100e, rgba(16, 16, 14, 0));
     z-index: 4;
-    opacity: ${({ showLeftArrow }) => (showLeftArrow ? "1" : "0")};
+    opacity: ${({ $showLeftArrow }) => ($showLeftArrow ? "1" : "0")};
     pointer-events: none;
     transition: opacity 0.2s ease;
   }
@@ -494,7 +485,7 @@ const SuggestionsWrapper = styled.div<{
     width: 40px;
     background: linear-gradient(to left, #10100e, rgba(16, 16, 14, 0));
     z-index: 4;
-    opacity: ${({ showRightArrow }) => (showRightArrow ? "1" : "0")};
+    opacity: ${({ $showRightArrow }) => ($showRightArrow ? "1" : "0")};
     pointer-events: none;
     transition: opacity 0.2s ease;
   }
@@ -524,11 +515,11 @@ const SuggestionsContainer = styled.div`
   }
 `;
 
-const ScrollArrow = styled.button<{ position: "left" | "right" }>`
+const ScrollArrow = styled.button<{ $position: "left" | "right" }>`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  ${({ position }) => (position === "left" ? "left: 5px;" : "right: 5px;")}
+  ${({ $position }) => ($position === "left" ? "left: 5px;" : "right: 5px;")}
   z-index: 5;
   background-color: #1e1e1a;
   color: #bdbdb2;
@@ -572,15 +563,15 @@ const SuggestionChip = styled.button`
   }
 `;
 
-const ChatInputWrapper = styled.div<{ isEmpty?: boolean }>`
+const ChatInputWrapper = styled.div<{ $isEmpty?: boolean }>`
   display: flex;
   flex-direction: column;
   position: fixed;
-  bottom: ${({ isEmpty }) => (isEmpty ? "50%" : "0")};
-  transform: translateY(${({ isEmpty }) => (isEmpty ? "50%" : "0")});
+  bottom: ${({ $isEmpty }) => ($isEmpty ? "50%" : "0")};
+  transform: translateY(${({ $isEmpty }) => ($isEmpty ? "50%" : "0")});
   transition: all 0.2s ease;
   background-color: #10100e;
-  padding-bottom: ${({ isEmpty }) => (isEmpty ? "0" : "8px")};
+  padding-bottom: ${({ $isEmpty }) => ($isEmpty ? "0" : "8px")};
   box-sizing: border-box;
 
   @media (min-width: 851px) {
@@ -616,7 +607,7 @@ const ChatInputContainer = styled.div`
   box-sizing: border-box;
 `;
 
-const ChatInput = styled.textarea<{ isLoading: boolean }>`
+const ChatInput = styled.textarea<{ $isLoading: boolean }>`
   flex: 1;
   padding: 0;
   background-color: transparent;
@@ -629,7 +620,7 @@ const ChatInput = styled.textarea<{ isLoading: boolean }>`
   overflow: hidden;
   min-height: auto;
   line-height: 1.5;
-  ${({ isLoading }) => (isLoading ? "opacity: 0.7;" : "")}
+  ${({ $isLoading }) => ($isLoading ? "opacity: 0.7;" : "")}
 
   &::placeholder {
     color: #505050;

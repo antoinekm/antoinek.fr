@@ -1,6 +1,4 @@
 import { env } from "env.mjs";
-import { GetServerSideProps } from "next";
-import { getServerSideSitemapLegacy } from "next-sitemap";
 import { YOUTUBE } from "src/constants/youtube";
 
 const maxResults = 50;
@@ -18,9 +16,14 @@ async function fetchVideos(pageToken?: string | null) {
   };
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export async function GET() {
   let pageToken: null | string = null;
-  let allVideos: any[] = [];
+  let allVideos: {
+    snippet: {
+      resourceId: { videoId: string };
+      publishedAt: string;
+    };
+  }[] = [];
 
   do {
     const { videos, nextPageToken } = await fetchVideos(pageToken);
@@ -33,7 +36,22 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     lastmod: new Date(video.snippet.publishedAt).toISOString(),
   }));
 
-  return getServerSideSitemapLegacy(ctx, fields);
-};
+  // Create sitemap XML
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${fields
+  .map(
+    (field) => `  <url>
+    <loc>${field.loc}</loc>
+    <lastmod>${field.lastmod}</lastmod>
+  </url>`,
+  )
+  .join("\n")}
+</urlset>`;
 
-export default function Sitemap() {}
+  return new Response(sitemap, {
+    headers: {
+      "Content-Type": "application/xml",
+    },
+  });
+}

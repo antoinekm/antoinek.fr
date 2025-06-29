@@ -1,4 +1,5 @@
-import Link from "@components/Link";
+"use client";
+
 import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import { forwardRef, useEffect, useMemo, useState } from "react";
@@ -8,6 +9,8 @@ import Progress from "./Progress";
 import SpotifyLogo from "../assets/images/spotify-logo.svg";
 import { doingAtom } from "../states/lanyard";
 import { Presence } from "../types/lanyard";
+
+import Link from "@/components/Link";
 
 // Thanks to Tim (https://github.com/timcole/timcole.me/blob/%F0%9F%A6%84/components/lanyard.tsx) for the types
 
@@ -46,6 +49,7 @@ const Doing = (
   ref: any,
 ) => {
   const [socket, setSocket] = useState<WebSocket | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
   const [doing, setDoing] = useAtom(doingAtom) as any;
 
   const send = (op: Operation, d?: unknown): void => {
@@ -79,6 +83,7 @@ const Doing = (
   }, [send, setDoing, socket]);
 
   useEffect(() => {
+    setIsMounted(true);
     if (!socket) setSocket(new WebSocket("wss://api.lanyard.rest/socket"));
   }, [socket]);
 
@@ -91,7 +96,8 @@ const Doing = (
     setActive(doing?.listening_to_spotify || currentActivity);
   }, [doing, currentActivity, setActive]);
 
-  if (!doing || !doing?.discord_status) return null;
+  // Prevent hydration mismatch by not rendering until mounted
+  if (!isMounted || !doing || !doing?.discord_status) return null;
 
   const currentDate: any = new Date();
 

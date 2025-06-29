@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { certifications } from "src/data/certifications";
 import { diplomas } from "src/data/diplomas";
@@ -38,8 +40,8 @@ const Diplomas = () => {
                     <YearText>{diploma.year}</YearText>
                   )}
                 </Year>
-                <Dot isHovered={hoveredIndex === index} />
-                <Content isHovered={hoveredIndex === index}>
+                <Dot $isHovered={hoveredIndex === index} />
+                <Content $isHovered={hoveredIndex === index}>
                   <TitleRow>
                     <Icon>{diploma.icon}</Icon>
                     <Title>{diploma.title}</Title>
@@ -75,8 +77,8 @@ const Diplomas = () => {
                     <YearText>{cert.year}</YearText>
                   )}
                 </Year>
-                <Dot isHovered={hoveredCertIndex === index} />
-                <Content isHovered={hoveredCertIndex === index}>
+                <Dot $isHovered={hoveredCertIndex === index} />
+                <Content $isHovered={hoveredCertIndex === index}>
                   <TitleRow>
                     <Icon>{cert.icon}</Icon>
                     <Title>{cert.title}</Title>
@@ -173,23 +175,23 @@ const YearSeparator = styled.div`
   margin: 0 auto;
 `;
 
-const Dot = styled.div<{ isHovered: boolean }>`
+const Dot = styled.div<{ $isHovered: boolean }>`
   position: absolute;
   left: 0;
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 50%;
-  border: 2px solid ${({ isHovered }) => (isHovered ? "#ffffe3" : "#30302b")};
-  background-color: ${({ isHovered }) => (isHovered ? "#ffffe3" : "#10100e")};
+  border: 2px solid ${({ $isHovered }) => ($isHovered ? "#ffffe3" : "#30302b")};
+  background-color: ${({ $isHovered }) => ($isHovered ? "#ffffe3" : "#10100e")};
   transform: translate(-50%, -50%);
   transition: all 0.2s ease;
   z-index: 0;
   top: 50%;
 `;
 
-const Content = styled.div<{ isHovered: boolean }>`
+const Content = styled.div<{ $isHovered: boolean }>`
   margin-left: 2rem;
-  transform: translateX(${({ isHovered }) => (isHovered ? "0.5rem" : "0")});
+  transform: translateX(${({ $isHovered }) => ($isHovered ? "0.5rem" : "0")});
   transition: transform 0.2s ease;
 `;
 

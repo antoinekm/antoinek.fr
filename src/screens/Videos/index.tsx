@@ -1,12 +1,12 @@
-import PageWrapper from "@components/PageWrapper";
-import Video from "@components/Video";
-import VideoSkeleton from "@components/VideoSkeleton";
-import { env } from "env.mjs";
-import { NextPage, NextPageContext } from "next";
-import Head from "next/head";
+"use client";
+
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
+
+import Video from "@/components/Video";
+import PageWrapper from "@/components/page-wrapper";
+import VideoSkeleton from "@/components/video-skeleton";
 
 export type VideosProps = {
   videos: any[];
@@ -14,22 +14,9 @@ export type VideosProps = {
   prevPageToken: string;
 };
 
-const VideosPage: NextPage<VideosProps> = ({
-  videos,
-  nextPageToken,
-  prevPageToken,
-}: VideosProps) => {
+const VideosPage = ({ videos, nextPageToken, prevPageToken }: VideosProps) => {
   return (
     <PageWrapper>
-      <Head>
-        <title>{"Creative video projects & youtube content"}</title>
-        <meta
-          name={"description"}
-          content={
-            "Watch my latest creative video content. Explore YouTube channel featuring music, slow motion videos, and digital creation."
-          }
-        />
-      </Head>
       <h1>{"🎥 latest videos"}</h1>
       <VideosWrapper>
         {videos?.length > 1
@@ -110,25 +97,5 @@ const PaginationButton = styled(Link)<{ disabled: boolean }>`
     opacity: 0.5;
   `}
 `;
-
-VideosPage.getInitialProps = async (ctx: NextPageContext) => {
-  const { query } = ctx;
-
-  const pageToken = (query.pageToken as string) || "";
-  const playListId = "UUN0hmDGaj1RAshd3A-x35pA";
-  const maxResults = 12;
-  const url = `${env.NEXT_PUBLIC_APP_URL}/api/youtube/playlistItems?part=snippet&maxResults=${maxResults}&playlistId=${playListId}&pageToken=${pageToken}`;
-
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    const { nextPageToken, prevPageToken, items: videos } = data;
-
-    return { videos, nextPageToken, prevPageToken };
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    return { videos: [], nextPageToken: "", prevPageToken: "" };
-  }
-};
 
 export default VideosPage;

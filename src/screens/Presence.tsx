@@ -1,17 +1,11 @@
-import Link from "@components/Link";
-import { NextSeo } from "next-seo";
+"use client";
 
-import PageWrapper from "../components/PageWrapper";
+import PageWrapper from "../components/page-wrapper";
+
+import Link from "@/components/Link";
 
 const Presence = () => (
   <PageWrapper forceReadableWidth>
-    <NextSeo
-      title={"Real-time activity tracking with Discord integration"}
-      description={
-        "Learn about how I share real-time activities on this website using Lanyard integration with Discord's presence system."
-      }
-    />
-
     <h1>{"👀 Presence"}</h1>
     <p>
       {

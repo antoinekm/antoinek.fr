@@ -1,3 +1,5 @@
+"use client";
+
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 
