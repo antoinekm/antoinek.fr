@@ -1,6 +1,6 @@
 import { env } from "env.mjs";
 
-import Videos from "@/screens/Videos";
+import VideosClient from "@/components/videos-client";
 import { constructMetadata } from "@/utils/metadata";
 
 export const metadata = constructMetadata({
@@ -26,7 +26,7 @@ export default async function VideosPage({
     const { nextPageToken, prevPageToken, items: videos } = data;
 
     return (
-      <Videos
+      <VideosClient
         videos={videos}
         nextPageToken={nextPageToken}
         prevPageToken={prevPageToken}
@@ -34,6 +34,6 @@ export default async function VideosPage({
     );
   } catch (error) {
     console.error("Error fetching videos:", error);
-    return <Videos videos={[]} nextPageToken={""} prevPageToken={""} />;
+    return <VideosClient videos={[]} nextPageToken={""} prevPageToken={""} />;
   }
 }

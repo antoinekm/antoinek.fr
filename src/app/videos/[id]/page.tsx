@@ -1,7 +1,8 @@
 import { env } from "env.mjs";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
-import VideoDetails from "@/screens/Videos/Details";
+import VideoDetailsDisplay from "@/components/video-details-display";
 import { constructMetadata } from "@/utils/metadata";
 
 export async function generateMetadata({
@@ -12,36 +13,39 @@ export async function generateMetadata({
   const { id: videoId } = await params;
 
   try {
-    const videoDetailsURL = `${env.NEXT_PUBLIC_APP_URL}/api/youtube/videos?part=snippet,statistics&id=${videoId}`;
-    const response = await fetch(videoDetailsURL);
+    const videoURL = `${env.NEXT_PUBLIC_APP_URL}/api/youtube/videos?part=snippet,statistics&id=${videoId}`;
+    const response = await fetch(videoURL);
     const data = await response.json();
-    const details = data.items[0]?.snippet;
+    const video = data.items?.[0];
 
-    if (details) {
+    if (!video) {
       return constructMetadata({
-        title: details.title,
-        description: details.description,
-        type: "article",
-        image: {
-          url:
-            details.thumbnails?.maxres?.url ||
-            details.thumbnails?.high?.url ||
-            "/static/images/open-graph.jpg",
-          width: 1280,
-          height: 720,
-          alt: details.title,
-        },
+        title: "Video Not Found",
+        description: "The requested video could not be found.",
       });
     }
-  } catch (error) {
-    console.error("Error fetching video metadata:", error);
-  }
 
-  // Fallback metadata
-  return constructMetadata({
-    title: "Video Details",
-    description: "Watch this video on Antoine's YouTube channel",
-  });
+    return constructMetadata({
+      title: video.snippet.title,
+      description:
+        video.snippet.description?.slice(0, 160) ||
+        "Watch this video by Antoine Kingue",
+      image: {
+        url:
+          video.snippet.thumbnails?.maxres?.url ||
+          video.snippet.thumbnails?.high?.url,
+        width: 1280,
+        height: 720,
+        alt: video.snippet.title,
+      },
+    });
+  } catch (error) {
+    console.error("Error generating metadata:", error);
+    return constructMetadata({
+      title: "Video",
+      description: "Watch this video by Antoine Kingue",
+    });
+  }
 }
 
 export default async function VideoDetailsPage({
@@ -52,40 +56,43 @@ export default async function VideoDetailsPage({
   const { id: videoId } = await params;
 
   try {
-    const videoDetailsURL = `${env.NEXT_PUBLIC_APP_URL}/api/youtube/videos?part=snippet,statistics&id=${videoId}`;
-    const videoCommentsURL = `${env.NEXT_PUBLIC_APP_URL}/api/youtube/commentThreads?part=snippet,replies&videoId=${videoId}&textFormat=html&order=relevance`;
+    // Fetch video details
+    const videoURL = `${env.NEXT_PUBLIC_APP_URL}/api/youtube/videos?part=snippet,statistics&id=${videoId}`;
+    const videoResponse = await fetch(videoURL);
+    const videoData = await videoResponse.json();
+    const details = videoData.items?.[0];
 
-    const [detailsResponse, commentsResponse] = await Promise.all([
-      fetch(videoDetailsURL),
-      fetch(videoCommentsURL),
-    ]);
+    if (!details) {
+      notFound();
+    }
 
-    const data = await detailsResponse.json();
-    const details = data.items[0]?.snippet;
-    const statistics = data.items[0]?.statistics;
+    // Fetch initial comments
+    const commentsURL = `${env.NEXT_PUBLIC_APP_URL}/api/youtube/commentThreads?part=snippet,replies&videoId=${videoId}&order=relevance`;
+    let comments = [];
+    let nextPageToken = null;
 
-    const videoCommentsData = await commentsResponse.json();
-    const comments = videoCommentsData.items;
-    const nextPageToken = videoCommentsData.nextPageToken;
+    try {
+      const commentsResponse = await fetch(commentsURL);
+      const commentsData = await commentsResponse.json();
+      comments = commentsData.items || [];
+      nextPageToken = commentsData.nextPageToken || null;
+    } catch (error) {
+      console.error("Error fetching comments:", error);
+    }
+
+    const statistics = details.statistics;
 
     return (
-      <VideoDetails
+      <VideoDetailsDisplay
         videoId={videoId}
         details={details}
-        comments={comments}
         statistics={statistics}
-        nextPageToken={nextPageToken}
+        initialComments={comments}
+        initialNextPageToken={nextPageToken}
       />
     );
   } catch (error) {
     console.error("Error fetching video details:", error);
-    return (
-      <VideoDetails
-        videoId={videoId}
-        err={{
-          statusCode: 404,
-        }}
-      />
-    );
+    throw error;
   }
 }

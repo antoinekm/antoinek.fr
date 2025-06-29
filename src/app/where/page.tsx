@@ -1,4 +1,7 @@
-import Where from "@/screens/Where";
+import Co from "@/components/Where/Co";
+import Diplomas from "@/components/Where/Diplomas";
+import Repo from "@/components/Where/Repo";
+import PageWrapper from "@/components/page-wrapper";
 import { constructMetadata } from "@/utils/metadata";
 
 export const metadata = constructMetadata({
@@ -8,5 +11,12 @@ export const metadata = constructMetadata({
 });
 
 export default function WherePage() {
-  return <Where />;
+  return (
+    <PageWrapper>
+      <h1>{"📍 where I've done it"}</h1>
+      <Co />
+      <Diplomas />
+      <Repo />
+    </PageWrapper>
+  );
 }

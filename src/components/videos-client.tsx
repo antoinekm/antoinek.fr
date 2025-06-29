@@ -14,7 +14,11 @@ export type VideosProps = {
   prevPageToken: string;
 };
 
-const VideosPage = ({ videos, nextPageToken, prevPageToken }: VideosProps) => {
+export default function VideosClient({
+  videos,
+  nextPageToken,
+  prevPageToken,
+}: VideosProps) {
   return (
     <PageWrapper>
       <h1>{"🎥 latest videos"}</h1>
@@ -23,41 +27,39 @@ const VideosPage = ({ videos, nextPageToken, prevPageToken }: VideosProps) => {
           ? videos.map((video, i) => (
               <Video
                 key={i}
-                url={`/videos/${video.snippet.resourceId.videoId}`}
                 title={video.snippet.title}
                 thumbnailUrl={video.snippet.thumbnails.medium.url}
+                url={`/videos/${video.snippet.resourceId.videoId}`}
               />
             ))
-          : Array.from({ length: 50 }, (_, i) => <VideoSkeleton key={i} />)}
+          : Array.from({ length: 12 }, (_, i) => <VideoSkeleton key={i} />)}
       </VideosWrapper>
       <PaginationContainer>
         <PaginationButton
-          href={`/videos${prevPageToken ? `?pageToken=${prevPageToken}` : ""}`}
+          href={`/videos?pageToken=${prevPageToken}`}
           disabled={!prevPageToken}
-          rel={"prev"}
         >
-          {"⬅️ previous"}
+          {"← Previous"}
         </PaginationButton>
         <PaginationButton
-          href={`/videos${nextPageToken ? `?pageToken=${nextPageToken}` : ""}`}
+          href={`/videos?pageToken=${nextPageToken}`}
           disabled={!nextPageToken}
-          rel={"next"}
         >
-          {"next ➡️"}
+          {"Next →"}
         </PaginationButton>
       </PaginationContainer>
     </PageWrapper>
   );
-};
+}
 
 const VideosWrapper = styled.div`
   display: grid;
-  width: 100%;
-  gap: 2rem 2rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-top: 2rem;
 
-  @media (max-width: 1100px) {
-    grid-template-columns: 1fr 1fr;
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (max-width: 900px) {
@@ -97,5 +99,3 @@ const PaginationButton = styled(Link)<{ disabled: boolean }>`
     opacity: 0.5;
   `}
 `;
-
-export default VideosPage;
