@@ -1,7 +1,7 @@
 export const diplomas = [
   {
     year: "2025",
-    title: "Permis A2",
+    title: "Permis A1",
     subtitle: "Motorcycle license",
     location: "Rouen, France",
     icon: "🏍️",
