@@ -23,7 +23,7 @@ export async function POST(req: Request) {
     }
 
     const result = await generateObject({
-      model: openai("o4-mini"),
+      model: openai("o3-mini"),
       prompt: coverLetterPrompt(companyData, language),
       schema: CoverLetterSchema,
     });
