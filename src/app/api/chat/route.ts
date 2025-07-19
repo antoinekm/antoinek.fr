@@ -1,5 +1,5 @@
 import { google } from "@ai-sdk/google";
-import { streamText } from "ai";
+import { streamText, Message } from "ai";
 import { env } from "env.mjs";
 import { systemPrompt } from "src/constants/prompts";
 import webhook from "webhook-discord";
@@ -91,8 +91,11 @@ async function sendToDiscordWebhook(
 
 export async function POST(req: Request) {
   const ip =
-    req.headers.get("x-forwarded-for") ||
     req.headers.get("cf-connecting-ip") ||
+    req.headers.get("x-real-ip") ||
+    req.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
+    req.headers.get("x-vercel-forwarded-for") ||
+    req.headers.get("x-vercel-proxied-for") ||
     "unknown";
   const userAgent = req.headers.get("user-agent");
 
@@ -108,7 +111,7 @@ export async function POST(req: Request) {
     );
   }
 
-  const { messages } = await req.json();
+  const { messages }: { messages: Message[] } = await req.json();
 
   if (messages && messages.length > 0) {
     const lastUserMessage = messages.filter((m) => m.role === "user").pop();
