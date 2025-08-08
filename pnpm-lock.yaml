@@ -27,8 +27,8 @@ importers:
         specifier: ^2.0.0
         version: 2.13.0(@babel/core@7.21.3)(@babel/template@7.27.2)(@types/react@19.1.9)(react@19.1.1)
       lucide-react:
-        specifier: ^0.537.0
-        version: 0.537.0(react@19.1.1)
+        specifier: ^0.539.0
+        version: 0.539.0(react@19.1.1)
       marked:
         specifier: ^15.0.7
         version: 15.0.12
@@ -5493,8 +5493,8 @@ packages:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
 
-  lucide-react@0.537.0:
-    resolution: {integrity: sha512-VxWsdxBGeFnlC+HwMg/l08HptN4YRU9o/lRog156jOmRxI1ERKqN+rJiNY/mPcKAdWdM0UbyO8ft1o0jq69SSQ==}
+  lucide-react@0.539.0:
+    resolution: {integrity: sha512-VVISr+VF2krO91FeuCrm1rSOLACQUYVy7NQkzrOty52Y8TlTPcXcMdQFj9bYzBgXbWCiywlwSZ3Z8u6a+6bMlg==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -8245,7 +8245,7 @@ snapshots:
       '@babel/helper-plugin-utils': 7.22.5
       debug: 4.4.1
       lodash.debounce: 4.0.8
-      resolve: 1.22.1
+      resolve: 1.22.10
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
@@ -10635,7 +10635,7 @@ snapshots:
       builtin-modules: 3.3.0
       deepmerge: 4.3.1
       is-module: 1.0.0
-      resolve: 1.22.1
+      resolve: 1.22.10
       rollup: 2.79.1
 
   '@rollup/plugin-replace@2.4.2(rollup@2.79.1)':
@@ -11177,7 +11177,7 @@ snapshots:
       debug: 4.4.1
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.3.8
+      semver: 7.7.2
       tsutils: 3.21.0(typescript@5.9.2)
     optionalDependencies:
       typescript: 5.9.2
@@ -11238,7 +11238,7 @@ snapshots:
       '@typescript-eslint/typescript-estree': 5.56.0(typescript@5.9.2)
       eslint: 8.57.1
       eslint-scope: 5.1.1
-      semver: 7.3.8
+      semver: 7.7.2
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -11579,7 +11579,7 @@ snapshots:
 
   array-buffer-byte-length@1.0.2:
     dependencies:
-      call-bound: 1.0.3
+      call-bound: 1.0.4
       is-array-buffer: 3.0.5
 
   array-flatten@1.1.1: {}
@@ -11661,7 +11661,7 @@ snapshots:
     dependencies:
       call-bind: 1.0.8
       define-properties: 1.2.1
-      es-abstract: 1.23.9
+      es-abstract: 1.24.0
       es-array-method-boxes-properly: 1.0.0
       is-string: 1.1.1
 
@@ -11678,9 +11678,9 @@ snapshots:
       array-buffer-byte-length: 1.0.2
       call-bind: 1.0.8
       define-properties: 1.2.1
-      es-abstract: 1.23.9
+      es-abstract: 1.24.0
       es-errors: 1.3.0
-      get-intrinsic: 1.2.7
+      get-intrinsic: 1.3.0
       is-array-buffer: 3.0.5
 
   asap@2.0.6: {}
@@ -12473,19 +12473,19 @@ snapshots:
 
   data-view-buffer@1.0.2:
     dependencies:
-      call-bound: 1.0.3
+      call-bound: 1.0.4
       es-errors: 1.3.0
       is-data-view: 1.0.2
 
   data-view-byte-length@1.0.2:
     dependencies:
-      call-bound: 1.0.3
+      call-bound: 1.0.4
       es-errors: 1.3.0
       is-data-view: 1.0.2
 
   data-view-byte-offset@1.0.1:
     dependencies:
-      call-bound: 1.0.3
+      call-bound: 1.0.4
       es-errors: 1.3.0
       is-data-view: 1.0.2
 
@@ -13636,7 +13636,7 @@ snapshots:
   function.prototype.name@1.1.8:
     dependencies:
       call-bind: 1.0.8
-      call-bound: 1.0.3
+      call-bound: 1.0.4
       define-properties: 1.2.1
       functions-have-names: 1.2.3
       hasown: 2.0.2
@@ -13687,9 +13687,9 @@ snapshots:
 
   get-symbol-description@1.1.0:
     dependencies:
-      call-bound: 1.0.3
+      call-bound: 1.0.4
       es-errors: 1.3.0
-      get-intrinsic: 1.2.7
+      get-intrinsic: 1.3.0
 
   get-tsconfig@4.10.1:
     dependencies:
@@ -13964,8 +13964,8 @@ snapshots:
   is-array-buffer@3.0.5:
     dependencies:
       call-bind: 1.0.8
-      call-bound: 1.0.3
-      get-intrinsic: 1.2.7
+      call-bound: 1.0.4
+      get-intrinsic: 1.3.0
 
   is-arrayish@0.2.1: {}
 
@@ -13974,7 +13974,7 @@ snapshots:
 
   is-async-function@2.1.0:
     dependencies:
-      call-bound: 1.0.3
+      call-bound: 1.0.4
       get-proto: 1.0.1
       has-tostringtag: 1.0.2
       safe-regex-test: 1.1.0
@@ -13989,7 +13989,7 @@ snapshots:
 
   is-boolean-object@1.2.1:
     dependencies:
-      call-bound: 1.0.3
+      call-bound: 1.0.4
       has-tostringtag: 1.0.2
 
   is-bun-module@2.0.0:
@@ -14004,13 +14004,13 @@ snapshots:
 
   is-data-view@1.0.2:
     dependencies:
-      call-bound: 1.0.3
-      get-intrinsic: 1.2.7
+      call-bound: 1.0.4
+      get-intrinsic: 1.3.0
       is-typed-array: 1.1.15
 
   is-date-object@1.1.0:
     dependencies:
-      call-bound: 1.0.3
+      call-bound: 1.0.4
       has-tostringtag: 1.0.2
 
   is-directory@0.3.1: {}
@@ -14021,7 +14021,7 @@ snapshots:
 
   is-finalizationregistry@1.1.1:
     dependencies:
-      call-bound: 1.0.3
+      call-bound: 1.0.4
 
   is-fullwidth-code-point@3.0.0: {}
 
@@ -14029,7 +14029,7 @@ snapshots:
 
   is-generator-function@1.1.0:
     dependencies:
-      call-bound: 1.0.3
+      call-bound: 1.0.4
       get-proto: 1.0.1
       has-tostringtag: 1.0.2
       safe-regex-test: 1.1.0
@@ -14046,7 +14046,7 @@ snapshots:
 
   is-number-object@1.1.1:
     dependencies:
-      call-bound: 1.0.3
+      call-bound: 1.0.4
       has-tostringtag: 1.0.2
 
   is-number@7.0.0: {}
@@ -14065,7 +14065,7 @@ snapshots:
 
   is-regex@1.2.1:
     dependencies:
-      call-bound: 1.0.3
+      call-bound: 1.0.4
       gopd: 1.2.0
       has-tostringtag: 1.0.2
       hasown: 2.0.2
@@ -14078,7 +14078,7 @@ snapshots:
 
   is-shared-array-buffer@1.0.4:
     dependencies:
-      call-bound: 1.0.3
+      call-bound: 1.0.4
 
   is-stream@2.0.1: {}
 
@@ -14089,7 +14089,7 @@ snapshots:
 
   is-symbol@1.1.1:
     dependencies:
-      call-bound: 1.0.3
+      call-bound: 1.0.4
       has-symbols: 1.1.0
       safe-regex-test: 1.1.0
 
@@ -14103,7 +14103,7 @@ snapshots:
 
   is-weakref@1.1.0:
     dependencies:
-      call-bound: 1.0.3
+      call-bound: 1.0.4
 
   is-weakref@1.1.1:
     dependencies:
@@ -14111,8 +14111,8 @@ snapshots:
 
   is-weakset@2.0.4:
     dependencies:
-      call-bound: 1.0.3
-      get-intrinsic: 1.2.7
+      call-bound: 1.0.4
+      get-intrinsic: 1.3.0
 
   is-wsl@2.2.0:
     dependencies:
@@ -14895,7 +14895,7 @@ snapshots:
     dependencies:
       yallist: 4.0.0
 
-  lucide-react@0.537.0(react@19.1.1):
+  lucide-react@0.539.0(react@19.1.1):
     dependencies:
       react: 19.1.1
 
@@ -15313,7 +15313,7 @@ snapshots:
       array.prototype.reduce: 1.0.5
       call-bind: 1.0.8
       define-properties: 1.2.1
-      es-abstract: 1.23.9
+      es-abstract: 1.24.0
 
   object.groupby@1.0.3:
     dependencies:
@@ -15391,7 +15391,7 @@ snapshots:
 
   own-keys@1.0.1:
     dependencies:
-      get-intrinsic: 1.2.7
+      get-intrinsic: 1.3.0
       object-keys: 1.1.1
       safe-push-apply: 1.0.0
 
@@ -16350,10 +16350,10 @@ snapshots:
     dependencies:
       call-bind: 1.0.8
       define-properties: 1.2.1
-      es-abstract: 1.23.9
+      es-abstract: 1.24.0
       es-errors: 1.3.0
       es-object-atoms: 1.1.1
-      get-intrinsic: 1.2.7
+      get-intrinsic: 1.3.0
       get-proto: 1.0.1
       which-builtin-type: 1.2.1
 
@@ -16937,10 +16937,10 @@ snapshots:
   string.prototype.trim@1.2.10:
     dependencies:
       call-bind: 1.0.8
-      call-bound: 1.0.3
+      call-bound: 1.0.4
       define-data-property: 1.1.4
       define-properties: 1.2.1
-      es-abstract: 1.23.9
+      es-abstract: 1.24.0
       es-object-atoms: 1.1.1
       has-property-descriptors: 1.0.2
 
@@ -17283,7 +17283,7 @@ snapshots:
 
   typed-array-buffer@1.0.3:
     dependencies:
-      call-bound: 1.0.3
+      call-bound: 1.0.4
       es-errors: 1.3.0
       is-typed-array: 1.1.15
 
@@ -17322,7 +17322,7 @@ snapshots:
 
   unbox-primitive@1.1.0:
     dependencies:
-      call-bound: 1.0.3
+      call-bound: 1.0.4
       has-bigints: 1.1.0
       has-symbols: 1.1.0
       which-boxed-primitive: 1.1.1
@@ -17624,7 +17624,7 @@ snapshots:
 
   which-builtin-type@1.2.1:
     dependencies:
-      call-bound: 1.0.3
+      call-bound: 1.0.4
       function.prototype.name: 1.1.8
       has-tostringtag: 1.0.2
       is-async-function: 2.1.0
@@ -17632,11 +17632,11 @@ snapshots:
       is-finalizationregistry: 1.1.1
       is-generator-function: 1.1.0
       is-regex: 1.2.1
-      is-weakref: 1.1.0
+      is-weakref: 1.1.1
       isarray: 2.0.5
       which-boxed-primitive: 1.1.1
       which-collection: 1.0.2
-      which-typed-array: 1.1.18
+      which-typed-array: 1.1.19
 
   which-collection@1.0.2:
     dependencies:
@@ -17649,7 +17649,7 @@ snapshots:
     dependencies:
       available-typed-arrays: 1.0.7
       call-bind: 1.0.8
-      call-bound: 1.0.3
+      call-bound: 1.0.4
       for-each: 0.3.3
       gopd: 1.2.0
       has-tostringtag: 1.0.2
