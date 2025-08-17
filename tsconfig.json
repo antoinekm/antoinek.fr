@@ -20,15 +20,9 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@components/*": [
-        "./src/components/*"
+      "@/*": [
+        "./src/*"
       ],
-      "@styles/*": [
-        "./src/styles/*"
-      ],
-      "@screens/*": [
-        "./src/screens/*"
-      ]
     },
     "incremental": true,
     "plugins": [

@@ -1,17 +1,18 @@
-import Link from "@components/Link";
-import PageWrapper from "@components/PageWrapper";
-import { NextSeo } from "next-seo";
 import compagnies from "src/data/compagnies";
-import calculateAge from "src/utils/calculateAge";
+import calculateAge from "src/utils/calculate-age";
 
-const What = () => {
+import Link from "@/components/Link";
+import PageWrapper from "@/components/page-wrapper";
+import { constructMetadata } from "@/utils/metadata";
+
+export const metadata = constructMetadata({
+  title: `Developer & Digital Creator at ${compagnies[0].name} and ${compagnies[1].name}`,
+  description: `Learn about my work at ${compagnies[0].name} and ${compagnies[1].name}. Discover projects and passion for technology and digital creation.`,
+});
+
+export default function WhatPage() {
   return (
     <PageWrapper forceReadableWidth>
-      <NextSeo
-        title={`Developer & digital Creator at ${compagnies[0].name} and ${compagnies[1].name}`}
-        description={`Learn about my work at ${compagnies[0].name} and ${compagnies[1].name}. Discover projects and passion for technology and digital creation.`}
-      />
-
       <h1>{"🤔 what I do"}</h1>
       <p>{`Antoine, ${calculateAge(
         "2001-03-10",
@@ -79,6 +80,4 @@ Tonight Pass simplifies the whole organization: find your teams and DJs, create 
       </p>
     </PageWrapper>
   );
-};
-
-export default What;
+}

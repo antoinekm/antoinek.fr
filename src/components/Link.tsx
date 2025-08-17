@@ -1,6 +1,8 @@
+"use client";
+
 import NextLink from "next/link";
 import React from "react";
-import isString from "src/utils/isString";
+import isString from "src/utils/is-string";
 import styled from "styled-components";
 import { UrlObject } from "url";
 

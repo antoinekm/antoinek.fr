@@ -1,28 +1,19 @@
-import Link from "@components/Link";
-import { CollectionPageJsonLd, NextSeo } from "next-seo";
 import { technologies } from "src/data/technologies";
 
-import PageWrapper from "../components/PageWrapper";
-import Technology from "../components/Technology";
+import Link from "@/components/Link";
+import Technology from "@/components/Technology";
+import PageWrapper from "@/components/page-wrapper";
+import { constructMetadata } from "@/utils/metadata";
 
-const How = () => {
+export const metadata = constructMetadata({
+  title: "Technical skills & modern technologies for development",
+  description:
+    "I highly leverage new bleeding-edge technologies and languages like Typescript or Go to stay on top of the game.",
+});
+
+export default function HowPage() {
   return (
     <PageWrapper>
-      <NextSeo
-        title={"Technical skills & modern technologies for development"}
-        description={
-          "I highly leverage new bleeding-edge technologies and languages like Typescript or Go to stay on top of the game."
-        }
-      />
-      <CollectionPageJsonLd
-        name={"Technical skills & technologies"}
-        hasPart={technologies.map((tech) => ({
-          about: tech.useCase,
-          name: tech.name,
-          description: tech.type,
-        }))}
-      />
-
       <h1>{"💻 how I do it"}</h1>
       <p>
         {
@@ -73,6 +64,4 @@ const How = () => {
       </p>
     </PageWrapper>
   );
-};
-
-export default How;
+}

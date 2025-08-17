@@ -1,17 +1,15 @@
-import { useRouter } from "next/router";
-import {
-  DefaultSeo,
-  LogoJsonLd,
-  OrganizationJsonLd,
-  SocialProfileJsonLd,
-} from "next-seo";
+"use client";
+
+import { env } from "env.mjs";
+import { usePathname, useSearchParams } from "next/navigation";
+import { LogoJsonLd, OrganizationJsonLd, SocialProfileJsonLd } from "next-seo";
 
 const Head = () => {
-  const router = useRouter();
-  const websiteUrl = "https://antoinek.fr";
-  const url = new URL(`${websiteUrl}${router.asPath}`);
-  const params = new URLSearchParams(url.search);
-  const pageToken = params.get("pageToken");
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const websiteUrl = env.NEXT_PUBLIC_APP_URL;
+  const url = new URL(`${websiteUrl}${pathname}`);
+  const pageToken = searchParams?.get("pageToken");
 
   url.hash = "";
   if (pageToken) {
@@ -50,53 +48,6 @@ const Head = () => {
           "https://x.com/AntoineKingue",
           "https://youtube.com/c/orionmood",
         ]}
-      />
-
-      <DefaultSeo
-        title={"Antoine Kingue"}
-        description={"Antoine Kingue: developer, designer and youtuber"}
-        canonical={url.href}
-        openGraph={{
-          type: "website",
-          locale: "en_US",
-          url: url.href,
-          site_name: "Antoine Kingue",
-          images: [
-            {
-              url: "/static/images/open-graph.jpg",
-              width: 1500,
-              height: 500,
-              alt: "Antoine Kingue",
-            },
-          ],
-        }}
-        twitter={{
-          handle: "@AntoineKingue",
-          site: "@AntoineKingue",
-          cardType: "summary_large_image",
-        }}
-        additionalMetaTags={[
-          {
-            name: "theme-color",
-            content: "#10100e",
-          },
-          {
-            name: "viewport",
-            content:
-              "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
-          },
-        ]}
-        additionalLinkTags={[
-          {
-            rel: "icon",
-            href: "/static/images/favicons/favicon.ico",
-          },
-          {
-            rel: "apple-touch-icon",
-            href: "/static/images/favicons/favicon.png",
-          },
-        ]}
-        titleTemplate={"%s | Antoine Kingue"}
       />
     </>
   );
