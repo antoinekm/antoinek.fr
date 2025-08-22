@@ -25,7 +25,7 @@ importers:
         version: 12.16.0(@emotion/is-prop-valid@1.2.2)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       jotai:
         specifier: ^2.0.0
-        version: 2.13.1(@babel/core@7.26.7)(@babel/template@7.27.2)(@types/react@19.1.10)(react@19.1.1)
+        version: 2.13.1(@babel/core@7.26.7)(@babel/template@7.27.2)(@types/react@19.1.11)(react@19.1.1)
       lucide-react:
         specifier: ^0.541.0
         version: 0.541.0(react@19.1.1)
@@ -61,7 +61,7 @@ importers:
         version: 5.0.1(@babel/plugin-syntax-flow@7.27.1(@babel/core@7.26.7))(@babel/plugin-transform-react-jsx@7.25.9(@babel/core@7.26.7))(@types/babel__core@7.20.5)(eslint@8.57.1)(react@19.1.1)(type-fest@0.21.3)(typescript@5.9.2)
       react-spring:
         specifier: ^10.0.0
-        version: 10.0.1(@react-three/fiber@8.17.12(@types/react@19.1.10)(react-dom@19.1.1(react@19.1.1))(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.10)(react@19.1.1))(react@19.1.1)(three@0.172.0))(konva@9.3.18)(react-dom@19.1.1(react@19.1.1))(react-konva@18.2.10(@types/react@19.1.10)(konva@9.3.18)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.10)(react@19.1.1))(react-zdog@1.2.2)(react@19.1.1)(three@0.172.0)(zdog@1.1.3)
+        version: 10.0.1(@react-three/fiber@8.17.12(@types/react@19.1.11)(react-dom@19.1.1(react@19.1.1))(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.11)(react@19.1.1))(react@19.1.1)(three@0.172.0))(konva@9.3.18)(react-dom@19.1.1(react@19.1.1))(react-konva@18.2.10(@types/react@19.1.11)(konva@9.3.18)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.11)(react@19.1.1))(react-zdog@1.2.2)(react@19.1.1)(three@0.172.0)(zdog@1.1.3)
       styled-components:
         specifier: ^6.0.0
         version: 6.1.19(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -92,7 +92,7 @@ importers:
         version: 22.17.2
       '@types/react':
         specifier: ^19.0.0
-        version: 19.1.10
+        version: 19.1.11
       babel-plugin-styled-components:
         specifier: ^2.0.7
         version: 2.1.4(@babel/core@7.26.7)(styled-components@6.1.19(react-dom@19.1.1(react@19.1.1))(react@19.1.1))
@@ -2386,8 +2386,8 @@ packages:
   '@types/mime@3.0.1':
     resolution: {integrity: sha512-Y4XFY5VJAuw0FgAqPNd6NNoV44jbq9Bz2L7Rh/J6jLTiHBSBJa9fxqQIvkIld4GsoDOcCbvzOUAbLPsSKKg+uA==}
 
-  '@types/node-forge@1.3.13':
-    resolution: {integrity: sha512-zePQJSW5QkwSHKRApqWCVKeKoSOt4xvEnLENZPjyvm9Ezdf/EyDeJM7jqLzOwjVICQQzvLZ63T55MKdJB5H6ww==}
+  '@types/node-forge@1.3.14':
+    resolution: {integrity: sha512-mhVF2BnD4BO+jtOp7z1CdzaK4mbuK0LLQYAvdOLqHTavxFNq4zA1EmYkpnFjP8HOUzedfQkRnp0E2ulSAYSzAw==}
 
   '@types/node@22.17.2':
     resolution: {integrity: sha512-gL6z5N9Jm9mhY+U2KXZpteb+09zyffliRkZyZOHODGATyC5B1Jt/7TzuuiLkFsSUMLbS1OLmlj/E+/3KF4Q/4w==}
@@ -2415,8 +2415,8 @@ packages:
     peerDependencies:
       '@types/react': '*'
 
-  '@types/react@19.1.10':
-    resolution: {integrity: sha512-EhBeSYX0Y6ye8pNebpKrwFJq7BoQ8J5SO6NlvNwwHjSj6adXJViPQrKlsyPw7hLBLvckEMO1yxeGdR82YBBlDg==}
+  '@types/react@19.1.11':
+    resolution: {integrity: sha512-lr3jdBw/BGj49Eps7EvqlUaoeA0xpj3pc0RoJkHpYaCHkVK7i28dKyImLQb3JVlqs3aYSXf7qYuWOW/fgZnTXQ==}
 
   '@types/resolve@1.17.1':
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
@@ -3322,6 +3322,9 @@ packages:
   caniuse-lite@1.0.30001735:
     resolution: {integrity: sha512-EV/laoX7Wq2J9TQlyIXRxTJqIw4sxfXS4OYgudGxBYRuTv0q7AM6yMEpU/Vo1I94thg9U6EZ2NfZx9GJq83u7w==}
 
+  caniuse-lite@1.0.30001737:
+    resolution: {integrity: sha512-BiloLiXtQNrY5UyF0+1nSJLXUENuhka2pzy2Fx5pGxqavdrxSCW4U6Pn/PoG3Efspi2frRbHpBV2XsrPE6EDlw==}
+
   case-sensitive-paths-webpack-plugin@2.4.0:
     resolution: {integrity: sha512-roIFONhcxog0JSSWbvVAh3OocukmSgpqOH6YpMkCvav/ySIV3JKg4Dc8vYtQjYi/UxpNE36r/9v+VqTQqgkYmw==}
     engines: {node: '>=4'}
@@ -3513,8 +3516,8 @@ packages:
   core-js-compat@3.29.1:
     resolution: {integrity: sha512-QmchCua884D8wWskMX8tW5ydINzd8oSJVx38lx/pVkFGqztxt73GYre3pm/hyYq8bPf+MW5In4I/uRShFDsbrA==}
 
-  core-js-compat@3.45.0:
-    resolution: {integrity: sha512-gRoVMBawZg0OnxaVv3zpqLLxaHmsubEGyTnqdpI/CEBvX4JadI1dMSHxagThprYRtSVbuQxvi6iUatdPxohHpA==}
+  core-js-compat@3.45.1:
+    resolution: {integrity: sha512-tqTt5T4PzsMIZ430XGviK4vzYSoeNJ6CXODi6c/voxOT6IZqBht5/EKaSNnYiEjjRYxjVz7DQIsOsY0XNi8PIA==}
 
   core-js-pure@3.29.1:
     resolution: {integrity: sha512-4En6zYVi0i0XlXHVz/bi6l1XDjCqkKRq765NXuX+SnaIatlE96Odt5lMLjdxUiNI1v9OXI5DSLWYPlmTfkTktg==}
@@ -3904,8 +3907,8 @@ packages:
   electron-to-chromium@1.4.340:
     resolution: {integrity: sha512-zx8hqumOqltKsv/MF50yvdAlPF9S/4PXbyfzJS6ZGhbddGkRegdwImmfSVqCkEziYzrIGZ/TlrzBND4FysfkDg==}
 
-  electron-to-chromium@1.5.207:
-    resolution: {integrity: sha512-mryFrrL/GXDTmAtIVMVf+eIXM09BBPlO5IQ7lUyKmK8d+A4VpRGG+M3ofoVef6qyF8s60rJei8ymlJxjUA8Faw==}
+  electron-to-chromium@1.5.208:
+    resolution: {integrity: sha512-ozZyibehoe7tOhNaf16lKmljVf+3npZcJIEbJRVftVsmAg5TeA1mGS9dVCZzOwr2xT7xK15V0p7+GZqSPgkuPg==}
 
   emittery@0.10.2:
     resolution: {integrity: sha512-aITqOwnLanpHLNXZJENbOgjUBeHocD+xsSJmNrjovKBW5HbSpW3d1pEls7GFQPUWXiwG9+0P4GtHfEqC/4M0Iw==}
@@ -9635,7 +9638,7 @@ snapshots:
       babel-plugin-polyfill-corejs2: 0.4.14(@babel/core@7.26.7)
       babel-plugin-polyfill-corejs3: 0.10.6(@babel/core@7.26.7)
       babel-plugin-polyfill-regenerator: 0.6.5(@babel/core@7.26.7)
-      core-js-compat: 3.45.0
+      core-js-compat: 3.45.1
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
@@ -10492,14 +10495,14 @@ snapshots:
 
   '@react-native/normalize-colors@0.77.0': {}
 
-  '@react-native/virtualized-lists@0.77.0(@types/react@19.1.10)(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.10)(react@19.1.1))(react@19.1.1)':
+  '@react-native/virtualized-lists@0.77.0(@types/react@19.1.11)(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.11)(react@19.1.1))(react@19.1.1)':
     dependencies:
       invariant: 2.2.4
       nullthrows: 1.1.1
       react: 19.1.1
-      react-native: 0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.10)(react@19.1.1)
+      react-native: 0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.11)(react@19.1.1)
     optionalDependencies:
-      '@types/react': 19.1.10
+      '@types/react': 19.1.11
 
   '@react-spring/animated@10.0.1(react@19.1.1)':
     dependencies:
@@ -10514,7 +10517,7 @@ snapshots:
       '@react-spring/types': 10.0.1
       react: 19.1.1
 
-  '@react-spring/konva@10.0.1(konva@9.3.18)(react-konva@18.2.10(@types/react@19.1.10)(konva@9.3.18)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)':
+  '@react-spring/konva@10.0.1(konva@9.3.18)(react-konva@18.2.10(@types/react@19.1.11)(konva@9.3.18)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)':
     dependencies:
       '@react-spring/animated': 10.0.1(react@19.1.1)
       '@react-spring/core': 10.0.1(react@19.1.1)
@@ -10522,16 +10525,16 @@ snapshots:
       '@react-spring/types': 10.0.1
       konva: 9.3.18
       react: 19.1.1
-      react-konva: 18.2.10(@types/react@19.1.10)(konva@9.3.18)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      react-konva: 18.2.10(@types/react@19.1.11)(konva@9.3.18)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
 
-  '@react-spring/native@10.0.1(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.10)(react@19.1.1))(react@19.1.1)':
+  '@react-spring/native@10.0.1(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.11)(react@19.1.1))(react@19.1.1)':
     dependencies:
       '@react-spring/animated': 10.0.1(react@19.1.1)
       '@react-spring/core': 10.0.1(react@19.1.1)
       '@react-spring/shared': 10.0.1(react@19.1.1)
       '@react-spring/types': 10.0.1
       react: 19.1.1
-      react-native: 0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.10)(react@19.1.1)
+      react-native: 0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.11)(react@19.1.1)
 
   '@react-spring/rafz@10.0.1': {}
 
@@ -10541,13 +10544,13 @@ snapshots:
       '@react-spring/types': 10.0.1
       react: 19.1.1
 
-  '@react-spring/three@10.0.1(@react-three/fiber@8.17.12(@types/react@19.1.10)(react-dom@19.1.1(react@19.1.1))(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.10)(react@19.1.1))(react@19.1.1)(three@0.172.0))(react@19.1.1)(three@0.172.0)':
+  '@react-spring/three@10.0.1(@react-three/fiber@8.17.12(@types/react@19.1.11)(react-dom@19.1.1(react@19.1.1))(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.11)(react@19.1.1))(react@19.1.1)(three@0.172.0))(react@19.1.1)(three@0.172.0)':
     dependencies:
       '@react-spring/animated': 10.0.1(react@19.1.1)
       '@react-spring/core': 10.0.1(react@19.1.1)
       '@react-spring/shared': 10.0.1(react@19.1.1)
       '@react-spring/types': 10.0.1
-      '@react-three/fiber': 8.17.12(@types/react@19.1.10)(react-dom@19.1.1(react@19.1.1))(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.10)(react@19.1.1))(react@19.1.1)(three@0.172.0)
+      '@react-three/fiber': 8.17.12(@types/react@19.1.11)(react-dom@19.1.1(react@19.1.1))(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.11)(react@19.1.1))(react@19.1.1)(three@0.172.0)
       react: 19.1.1
       three: 0.172.0
 
@@ -10573,7 +10576,7 @@ snapshots:
       react-zdog: 1.2.2
       zdog: 1.1.3
 
-  '@react-three/fiber@8.17.12(@types/react@19.1.10)(react-dom@19.1.1(react@19.1.1))(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.10)(react@19.1.1))(react@19.1.1)(three@0.172.0)':
+  '@react-three/fiber@8.17.12(@types/react@19.1.11)(react-dom@19.1.1(react@19.1.1))(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.11)(react@19.1.1))(react@19.1.1)(three@0.172.0)':
     dependencies:
       '@babel/runtime': 7.28.3
       '@types/debounce': 1.2.4
@@ -10582,7 +10585,7 @@ snapshots:
       base64-js: 1.5.1
       buffer: 6.0.3
       debounce: 1.2.1
-      its-fine: 1.2.5(@types/react@19.1.10)(react@19.1.1)
+      its-fine: 1.2.5(@types/react@19.1.11)(react@19.1.1)
       react: 19.1.1
       react-reconciler: 0.27.0(react@19.1.1)
       scheduler: 0.21.0
@@ -10591,7 +10594,7 @@ snapshots:
       zustand: 3.7.2(react@19.1.1)
     optionalDependencies:
       react-dom: 19.1.1(react@19.1.1)
-      react-native: 0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.10)(react@19.1.1)
+      react-native: 0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.11)(react@19.1.1)
     transitivePeerDependencies:
       - '@types/react'
 
@@ -10898,7 +10901,7 @@ snapshots:
 
   '@types/mime@3.0.1': {}
 
-  '@types/node-forge@1.3.13':
+  '@types/node-forge@1.3.14':
     dependencies:
       '@types/node': 22.17.2
 
@@ -10918,13 +10921,13 @@ snapshots:
 
   '@types/react-reconciler@0.26.7':
     dependencies:
-      '@types/react': 19.1.10
+      '@types/react': 19.1.11
 
-  '@types/react-reconciler@0.28.9(@types/react@19.1.10)':
+  '@types/react-reconciler@0.28.9(@types/react@19.1.11)':
     dependencies:
-      '@types/react': 19.1.10
+      '@types/react': 19.1.11
 
-  '@types/react@19.1.10':
+  '@types/react@19.1.11':
     dependencies:
       csstype: 3.1.3
 
@@ -11785,7 +11788,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.26.7
       '@babel/helper-define-polyfill-provider': 0.6.5(@babel/core@7.26.7)
-      core-js-compat: 3.45.0
+      core-js-compat: 3.45.1
     transitivePeerDependencies:
       - supports-color
 
@@ -11793,7 +11796,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.26.7
       '@babel/helper-define-polyfill-provider': 0.6.5(@babel/core@7.26.7)
-      core-js-compat: 3.45.0
+      core-js-compat: 3.45.1
     transitivePeerDependencies:
       - supports-color
 
@@ -11980,8 +11983,8 @@ snapshots:
 
   browserslist@4.25.3:
     dependencies:
-      caniuse-lite: 1.0.30001735
-      electron-to-chromium: 1.5.207
+      caniuse-lite: 1.0.30001737
+      electron-to-chromium: 1.5.208
       node-releases: 2.0.19
       update-browserslist-db: 1.1.3(browserslist@4.25.3)
 
@@ -12062,6 +12065,8 @@ snapshots:
       lodash.uniq: 4.5.0
 
   caniuse-lite@1.0.30001735: {}
+
+  caniuse-lite@1.0.30001737: {}
 
   case-sensitive-paths-webpack-plugin@2.4.0: {}
 
@@ -12257,7 +12262,7 @@ snapshots:
     dependencies:
       browserslist: 4.21.5
 
-  core-js-compat@3.45.0:
+  core-js-compat@3.45.1:
     dependencies:
       browserslist: 4.25.3
 
@@ -12636,7 +12641,7 @@ snapshots:
 
   electron-to-chromium@1.4.340: {}
 
-  electron-to-chromium@1.5.207: {}
+  electron-to-chromium@1.5.208: {}
 
   emittery@0.10.2: {}
 
@@ -12898,7 +12903,7 @@ snapshots:
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.9.2))(eslint@8.57.1))(eslint@8.57.1)
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@7.13.0(eslint@8.57.1)(typescript@5.9.2))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1)
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@7.13.0(eslint@8.57.1)(typescript@5.9.2))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.9.2))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1)
       eslint-plugin-jsx-a11y: 6.10.2(eslint@8.57.1)
       eslint-plugin-react: 7.37.5(eslint@8.57.1)
       eslint-plugin-react-hooks: 5.2.0(eslint@8.57.1)
@@ -12989,7 +12994,7 @@ snapshots:
       tinyglobby: 0.2.14
       unrs-resolver: 1.11.1
     optionalDependencies:
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@7.13.0(eslint@8.57.1)(typescript@5.9.2))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1)
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@7.13.0(eslint@8.57.1)(typescript@5.9.2))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.9.2))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -13094,7 +13099,7 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-import@2.32.0(@typescript-eslint/parser@7.13.0(eslint@8.57.1)(typescript@5.9.2))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1):
+  eslint-plugin-import@2.32.0(@typescript-eslint/parser@7.13.0(eslint@8.57.1)(typescript@5.9.2))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.9.2))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.9
@@ -13950,7 +13955,7 @@ snapshots:
 
   is-async-function@2.1.0:
     dependencies:
-      call-bound: 1.0.4
+      call-bound: 1.0.3
       get-proto: 1.0.1
       has-tostringtag: 1.0.2
       safe-regex-test: 1.1.0
@@ -13965,7 +13970,7 @@ snapshots:
 
   is-boolean-object@1.2.1:
     dependencies:
-      call-bound: 1.0.4
+      call-bound: 1.0.3
       has-tostringtag: 1.0.2
 
   is-bun-module@2.0.0:
@@ -13997,7 +14002,7 @@ snapshots:
 
   is-finalizationregistry@1.1.1:
     dependencies:
-      call-bound: 1.0.4
+      call-bound: 1.0.3
 
   is-fullwidth-code-point@3.0.0: {}
 
@@ -14005,7 +14010,7 @@ snapshots:
 
   is-generator-function@1.1.0:
     dependencies:
-      call-bound: 1.0.4
+      call-bound: 1.0.3
       get-proto: 1.0.1
       has-tostringtag: 1.0.2
       safe-regex-test: 1.1.0
@@ -14022,7 +14027,7 @@ snapshots:
 
   is-number-object@1.1.1:
     dependencies:
-      call-bound: 1.0.4
+      call-bound: 1.0.3
       has-tostringtag: 1.0.2
 
   is-number@7.0.0: {}
@@ -14087,7 +14092,7 @@ snapshots:
 
   is-weakset@2.0.4:
     dependencies:
-      call-bound: 1.0.4
+      call-bound: 1.0.3
       get-intrinsic: 1.3.0
 
   is-wsl@2.2.0:
@@ -14142,9 +14147,9 @@ snapshots:
       has-symbols: 1.1.0
       set-function-name: 2.0.2
 
-  its-fine@1.2.5(@types/react@19.1.10)(react@19.1.1):
+  its-fine@1.2.5(@types/react@19.1.11)(react@19.1.1):
     dependencies:
-      '@types/react-reconciler': 0.28.9(@types/react@19.1.10)
+      '@types/react-reconciler': 0.28.9(@types/react@19.1.11)
       react: 19.1.1
     transitivePeerDependencies:
       - '@types/react'
@@ -14642,11 +14647,11 @@ snapshots:
       - ts-node
       - utf-8-validate
 
-  jotai@2.13.1(@babel/core@7.26.7)(@babel/template@7.27.2)(@types/react@19.1.10)(react@19.1.1):
+  jotai@2.13.1(@babel/core@7.26.7)(@babel/template@7.27.2)(@types/react@19.1.11)(react@19.1.1):
     optionalDependencies:
       '@babel/core': 7.26.7
       '@babel/template': 7.27.2
-      '@types/react': 19.1.10
+      '@types/react': 19.1.11
       react: 19.1.1
 
   js-tokens@4.0.0: {}
@@ -16081,10 +16086,10 @@ snapshots:
 
   react-is@18.3.1: {}
 
-  react-konva@18.2.10(@types/react@19.1.10)(konva@9.3.18)(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+  react-konva@18.2.10(@types/react@19.1.11)(konva@9.3.18)(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
     dependencies:
-      '@types/react-reconciler': 0.28.9(@types/react@19.1.10)
-      its-fine: 1.2.5(@types/react@19.1.10)(react@19.1.1)
+      '@types/react-reconciler': 0.28.9(@types/react@19.1.11)
+      its-fine: 1.2.5(@types/react@19.1.11)(react@19.1.1)
       konva: 9.3.18
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
@@ -16093,7 +16098,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.10)(react@19.1.1):
+  react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.11)(react@19.1.1):
     dependencies:
       '@jest/create-cache-key-function': 29.7.0
       '@react-native/assets-registry': 0.77.0
@@ -16102,7 +16107,7 @@ snapshots:
       '@react-native/gradle-plugin': 0.77.0
       '@react-native/js-polyfills': 0.77.0
       '@react-native/normalize-colors': 0.77.0
-      '@react-native/virtualized-lists': 0.77.0(@types/react@19.1.10)(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.10)(react@19.1.1))(react@19.1.1)
+      '@react-native/virtualized-lists': 0.77.0(@types/react@19.1.11)(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.11)(react@19.1.1))(react@19.1.1)
       abort-controller: 3.0.0
       anser: 1.4.10
       ansi-regex: 5.0.1
@@ -16134,7 +16139,7 @@ snapshots:
       ws: 6.2.3
       yargs: 17.7.2
     optionalDependencies:
-      '@types/react': 19.1.10
+      '@types/react': 19.1.11
     transitivePeerDependencies:
       - '@babel/core'
       - '@babel/preset-env'
@@ -16253,12 +16258,12 @@ snapshots:
       - webpack-hot-middleware
       - webpack-plugin-serve
 
-  react-spring@10.0.1(@react-three/fiber@8.17.12(@types/react@19.1.10)(react-dom@19.1.1(react@19.1.1))(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.10)(react@19.1.1))(react@19.1.1)(three@0.172.0))(konva@9.3.18)(react-dom@19.1.1(react@19.1.1))(react-konva@18.2.10(@types/react@19.1.10)(konva@9.3.18)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.10)(react@19.1.1))(react-zdog@1.2.2)(react@19.1.1)(three@0.172.0)(zdog@1.1.3):
+  react-spring@10.0.1(@react-three/fiber@8.17.12(@types/react@19.1.11)(react-dom@19.1.1(react@19.1.1))(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.11)(react@19.1.1))(react@19.1.1)(three@0.172.0))(konva@9.3.18)(react-dom@19.1.1(react@19.1.1))(react-konva@18.2.10(@types/react@19.1.11)(konva@9.3.18)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.11)(react@19.1.1))(react-zdog@1.2.2)(react@19.1.1)(three@0.172.0)(zdog@1.1.3):
     dependencies:
       '@react-spring/core': 10.0.1(react@19.1.1)
-      '@react-spring/konva': 10.0.1(konva@9.3.18)(react-konva@18.2.10(@types/react@19.1.10)(konva@9.3.18)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)
-      '@react-spring/native': 10.0.1(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.10)(react@19.1.1))(react@19.1.1)
-      '@react-spring/three': 10.0.1(@react-three/fiber@8.17.12(@types/react@19.1.10)(react-dom@19.1.1(react@19.1.1))(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.10)(react@19.1.1))(react@19.1.1)(three@0.172.0))(react@19.1.1)(three@0.172.0)
+      '@react-spring/konva': 10.0.1(konva@9.3.18)(react-konva@18.2.10(@types/react@19.1.11)(konva@9.3.18)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)
+      '@react-spring/native': 10.0.1(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.11)(react@19.1.1))(react@19.1.1)
+      '@react-spring/three': 10.0.1(@react-three/fiber@8.17.12(@types/react@19.1.11)(react-dom@19.1.1(react@19.1.1))(react-native@0.77.0(@babel/core@7.26.7)(@babel/preset-env@7.26.7(@babel/core@7.26.7))(@types/react@19.1.11)(react@19.1.1))(react@19.1.1)(three@0.172.0))(react@19.1.1)(three@0.172.0)
       '@react-spring/web': 10.0.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@react-spring/zdog': 10.0.1(react-dom@19.1.1(react@19.1.1))(react-zdog@1.2.2)(react@19.1.1)(zdog@1.1.3)
       react: 19.1.1
@@ -16562,7 +16567,7 @@ snapshots:
 
   selfsigned@2.4.1:
     dependencies:
-      '@types/node-forge': 1.3.13
+      '@types/node-forge': 1.3.14
       node-forge: 1.3.1
 
   semver@5.7.2: {}
@@ -17600,7 +17605,7 @@ snapshots:
 
   which-builtin-type@1.2.1:
     dependencies:
-      call-bound: 1.0.4
+      call-bound: 1.0.3
       function.prototype.name: 1.1.8
       has-tostringtag: 1.0.2
       is-async-function: 2.1.0
