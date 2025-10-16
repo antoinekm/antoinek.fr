@@ -27,8 +27,8 @@ importers:
         specifier: ^2.0.0
         version: 2.15.0(@babel/core@7.26.7)(@babel/template@7.27.2)(@types/react@19.2.2)(react@19.2.0)
       lucide-react:
-        specifier: ^0.545.0
-        version: 0.545.0(react@19.2.0)
+        specifier: ^0.546.0
+        version: 0.546.0(react@19.2.0)
       marked:
         specifier: ^15.0.7
         version: 15.0.12
@@ -5499,8 +5499,8 @@ packages:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
 
-  lucide-react@0.545.0:
-    resolution: {integrity: sha512-7r1/yUuflQDSt4f1bpn5ZAocyIxcTyVyBBChSVtBKn5M+392cPmI5YJMWOJKk/HUWGm5wg83chlAZtCcGbEZtw==}
+  lucide-react@0.546.0:
+    resolution: {integrity: sha512-Z94u6fKT43lKeYHiVyvyR8fT7pwCzDu7RyMPpTvh054+xahSgj4HFQ+NmflvzdXsoAjYGdCguGaFKYuvq0ThCQ==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -8235,7 +8235,7 @@ snapshots:
       '@babel/helper-plugin-utils': 7.22.5
       debug: 4.4.3
       lodash.debounce: 4.0.8
-      resolve: 1.22.1
+      resolve: 1.22.10
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
@@ -11111,7 +11111,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/typescript-estree': 5.62.0(typescript@5.9.3)
       '@typescript-eslint/utils': 5.62.0(eslint@8.57.1)(typescript@5.9.3)
-      debug: 4.4.0
+      debug: 4.4.3
       eslint: 8.57.1
       tsutils: 3.21.0(typescript@5.9.3)
     optionalDependencies:
@@ -11158,7 +11158,7 @@ snapshots:
       debug: 4.4.3
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.3.8
+      semver: 7.7.3
       tsutils: 3.21.0(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
@@ -11219,7 +11219,7 @@ snapshots:
       '@typescript-eslint/typescript-estree': 5.56.0(typescript@5.9.3)
       eslint: 8.57.1
       eslint-scope: 5.1.1
-      semver: 7.3.8
+      semver: 7.7.3
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -14870,7 +14870,7 @@ snapshots:
     dependencies:
       yallist: 4.0.0
 
-  lucide-react@0.545.0(react@19.2.0):
+  lucide-react@0.546.0(react@19.2.0):
     dependencies:
       react: 19.2.0
 
