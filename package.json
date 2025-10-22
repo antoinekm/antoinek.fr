@@ -19,7 +19,7 @@
     "framer-motion": "^12.0.0",
     "jotai": "^2.0.0",
     "lucide-react": "^0.546.0",
-    "marked": "^15.0.7",
+    "marked": "^16.0.0",
     "next": "^15.0.0",
     "next-seo": "^6.6.0",
     "next-sitemap": "^4.2.3",
