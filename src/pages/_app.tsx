@@ -3,6 +3,7 @@ import Head from "@components/Head";
 import { ChevronsRight } from "@components/Icons";
 import Nav from "@components/Nav";
 import SuccessiveType from "@components/SuccessiveType";
+import { Analytics } from "@vercel/analytics/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { AppProps } from "next/app";
 import React from "react";
@@ -99,6 +100,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           </ContentWrapper>
         </MainContent>
       </Wrapper>
+      <Analytics />
     </StyleSheetManager>
   );
 };
