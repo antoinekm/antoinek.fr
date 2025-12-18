@@ -22,7 +22,10 @@ export default function Home() {
     handleSubmit,
     isLoading,
     append,
-  } = useChat();
+    error,
+  } = useChat({
+    api: "/api/chat",
+  });
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -193,6 +196,14 @@ export default function Home() {
               <Message $role={"assistant"}>
                 <MessageSender>{"Antoine AI"}</MessageSender>
                 <TypingIndicator>{"thinking..."}</TypingIndicator>
+              </Message>
+            )}
+            {error && (
+              <Message $role={"assistant"}>
+                <MessageSender>{"Error"}</MessageSender>
+                <ErrorMessage>
+                  {error.message || "An error occurred. Please try again."}
+                </ErrorMessage>
               </Message>
             )}
             <div ref={messagesEndRef} />
@@ -460,6 +471,16 @@ const TypingIndicator = styled.div`
   font-style: italic;
   text-align: left;
   font-size: 0.8rem;
+`;
+
+const ErrorMessage = styled.div`
+  color: #ff6b6b;
+  text-align: left;
+  font-size: 0.9rem;
+  background-color: rgba(255, 107, 107, 0.1);
+  padding: 0.5rem;
+  border-radius: 4px;
+  border-left: 3px solid #ff6b6b;
 `;
 
 const SuggestionsWrapper = styled.div<{

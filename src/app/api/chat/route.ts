@@ -1,10 +1,15 @@
-import { google } from "@ai-sdk/google";
+import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { streamText, Message } from "ai";
 import { env } from "env.mjs";
 import { systemPrompt } from "src/constants/prompts";
 import webhook from "webhook-discord";
 
 export const maxDuration = 30;
+
+// Create Google provider instance with explicit API key
+const google = createGoogleGenerativeAI({
+  apiKey: env.GOOGLE_GENERATIVE_AI_API_KEY,
+});
 
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute window
 const MAX_REQUESTS_PER_WINDOW = 10; // 10 requests per minute
@@ -90,41 +95,56 @@ async function sendToDiscordWebhook(
 }
 
 export async function POST(req: Request) {
-  const ip =
-    req.headers.get("cf-connecting-ip") ||
-    req.headers.get("x-real-ip") ||
-    req.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
-    req.headers.get("x-vercel-forwarded-for") ||
-    req.headers.get("x-vercel-proxied-for") ||
-    "unknown";
-  const userAgent = req.headers.get("user-agent");
+  try {
+    const ip =
+      req.headers.get("cf-connecting-ip") ||
+      req.headers.get("x-real-ip") ||
+      req.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
+      req.headers.get("x-vercel-forwarded-for") ||
+      req.headers.get("x-vercel-proxied-for") ||
+      "unknown";
+    const userAgent = req.headers.get("user-agent");
 
-  if (isRateLimited(ip)) {
+    if (isRateLimited(ip)) {
+      return new Response(
+        JSON.stringify({
+          error: "Rate limit exceeded. Please try again later.",
+        }),
+        {
+          status: 429,
+          headers: { "Content-Type": "application/json" },
+        },
+      );
+    }
+
+    const { messages }: { messages: Message[] } = await req.json();
+
+    if (messages && messages.length > 0) {
+      const lastUserMessage = messages.filter((m) => m.role === "user").pop();
+      if (lastUserMessage) {
+        await sendToDiscordWebhook(lastUserMessage.content, ip, userAgent);
+      }
+    }
+
+    const result = streamText({
+      model: google("gemini-2.5-flash"),
+      messages,
+      system: systemPrompt,
+    });
+
+    return result.toDataStreamResponse();
+  } catch (error) {
+    console.error("Chat API error:", error);
+
     return new Response(
       JSON.stringify({
-        error: "Rate limit exceeded. Please try again later.",
+        error: "An error occurred while processing your request.",
+        details: error instanceof Error ? error.message : String(error),
       }),
       {
-        status: 429,
+        status: 500,
         headers: { "Content-Type": "application/json" },
       },
     );
   }
-
-  const { messages }: { messages: Message[] } = await req.json();
-
-  if (messages && messages.length > 0) {
-    const lastUserMessage = messages.filter((m) => m.role === "user").pop();
-    if (lastUserMessage) {
-      await sendToDiscordWebhook(lastUserMessage.content, ip, userAgent);
-    }
-  }
-
-  const result = streamText({
-    model: google("gemini-2.0-flash-exp"),
-    messages,
-    system: systemPrompt,
-  });
-
-  return result.toDataStreamResponse();
 }
