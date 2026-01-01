@@ -3,6 +3,8 @@ import { GetServerSideProps } from "next";
 import { getServerSideSitemapLegacy } from "next-sitemap";
 import { YOUTUBE } from "src/constants/youtube";
 
+import { getAllPosts } from "../../lib/blog";
+
 const maxResults = 50;
 
 async function fetchVideos(pageToken?: string | null) {
@@ -28,10 +30,19 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     pageToken = nextPageToken;
   } while (pageToken);
 
-  const fields = allVideos.map((video) => ({
+  const videoFields = allVideos.map((video) => ({
     loc: `${env.NEXT_PUBLIC_APP_URL}/videos/${video.snippet.resourceId.videoId}`,
     lastmod: new Date(video.snippet.publishedAt).toISOString(),
   }));
+
+  // Add blog posts to sitemap
+  const blogPosts = await getAllPosts();
+  const blogFields = blogPosts.map((post) => ({
+    loc: `${env.NEXT_PUBLIC_APP_URL}/blog/${post.slug}`,
+    lastmod: new Date(post.date).toISOString(),
+  }));
+
+  const fields = [...videoFields, ...blogFields];
 
   return getServerSideSitemapLegacy(ctx, fields);
 };

@@ -33,7 +33,7 @@ const securityHeaders = [
 
 /** @type {import('next').NextConfig} */
 const config = {
-  webpack(config) {
+  webpack(config, { isServer }) {
     config.module.rules.push({
       test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
       use: {
@@ -44,6 +44,15 @@ const config = {
         },
       },
     });
+
+    // Exclude fs from client-side bundle
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+      };
+    }
+
     return config;
   },
   compiler: {
