@@ -1,14 +1,14 @@
 import { useRouter } from "next/router";
-import {
-  DefaultSeo,
-  LogoJsonLd,
-  OrganizationJsonLd,
-  SocialProfileJsonLd,
-} from "next-seo";
+import { DefaultSeo, LogoJsonLd } from "next-seo";
+
+import { PERSONAL } from "../constants/personal";
+import { certifications } from "../data/certifications";
+import compagnies from "../data/compagnies";
+import { technologies } from "../data/technologies";
 
 const Head = () => {
   const router = useRouter();
-  const websiteUrl = "https://antoinek.fr";
+  const websiteUrl = PERSONAL.url;
   const url = new URL(`${websiteUrl}${router.asPath}`);
   const params = new URLSearchParams(url.search);
   const pageToken = params.get("pageToken");
@@ -20,59 +20,94 @@ const Head = () => {
     url.search = "";
   }
 
+  const currentEmployer = compagnies[0];
+
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${websiteUrl}/#person`,
+    name: PERSONAL.name,
+    givenName: "Antoine",
+    familyName: "Kingue",
+    url: websiteUrl,
+    image: `${PERSONAL.url}${PERSONAL.image}`,
+    description: PERSONAL.description,
+    email: PERSONAL.email,
+    telephone: PERSONAL.phone,
+    birthDate: PERSONAL.birthDate,
+    birthPlace: {
+      "@type": "Place",
+      name: PERSONAL.birthPlace.name,
+      address: {
+        "@type": "PostalAddress",
+        ...PERSONAL.birthPlace.address,
+      },
+    },
+    nationality: {
+      "@type": "Country",
+      name: "France",
+    },
+    jobTitle: PERSONAL.jobTitle,
+    worksFor: {
+      "@type": "Organization",
+      name: currentEmployer.name,
+      url: currentEmployer.url,
+    },
+    knowsAbout: technologies.map((tech) => ({
+      "@type": "Thing",
+      name: tech.name,
+      description: tech.useCase,
+    })),
+    hasCredential: certifications.slice(0, 10).map((cert) => ({
+      "@type": "EducationalOccupationalCredential",
+      name: cert.title,
+      credentialCategory: "certification",
+      recognizedBy: {
+        "@type": "Organization",
+        name: cert.subtitle || cert.location,
+      },
+      dateCreated: cert.year,
+    })),
+    sameAs: Object.values(PERSONAL.sameAs),
+    alumniOf: [
+      {
+        "@type": "EducationalOrganization",
+        name: "Need for School by CCI Normandie",
+        url: "https://needfor-school.com",
+      },
+    ],
+  };
+
   return (
     <>
-      <OrganizationJsonLd
-        type={"Person"}
-        logo={"https://antoinek.fr/static/images/favicons/favicon.png"}
-        name={"Antoine Kingue"}
-        url={websiteUrl}
-        sameAs={[
-          "https://linkedin.com/in/antoinekm",
-          "https://github.com/AntoineKM",
-          "https://x.com/AntoineKingue",
-          "https://youtube.com/c/orionmood",
-        ]}
+      <script
+        type={"application/ld+json"}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
 
-      <LogoJsonLd
-        logo={"https://antoinek.fr/static/images/favicons/favicon.png"}
-        url={websiteUrl}
-      />
-
-      <SocialProfileJsonLd
-        type={"Person"}
-        name={"Antoine Kingue"}
-        url={websiteUrl}
-        sameAs={[
-          "https://linkedin.com/in/antoinekm",
-          "https://github.com/AntoineKM",
-          "https://x.com/AntoineKingue",
-          "https://youtube.com/c/orionmood",
-        ]}
-      />
+      <LogoJsonLd logo={PERSONAL.image} url={websiteUrl} />
 
       <DefaultSeo
-        title={"Antoine Kingue"}
-        description={"Antoine Kingue: developer, designer and youtuber"}
+        title={PERSONAL.name}
+        description={`${PERSONAL.name}: ${PERSONAL.description}`}
         canonical={url.href}
         openGraph={{
           type: "website",
           locale: "en_US",
           url: url.href,
-          site_name: "Antoine Kingue",
+          site_name: PERSONAL.name,
           images: [
             {
               url: "/static/images/open-graph.jpg",
               width: 1500,
               height: 500,
-              alt: "Antoine Kingue",
+              alt: PERSONAL.name,
             },
           ],
         }}
         twitter={{
-          handle: "@AntoineKingue",
-          site: "@AntoineKingue",
+          handle: PERSONAL.twitter,
+          site: PERSONAL.twitter,
           cardType: "summary_large_image",
         }}
         additionalMetaTags={[
@@ -96,7 +131,7 @@ const Head = () => {
             href: "/static/images/favicons/favicon.png",
           },
         ]}
-        titleTemplate={"%s | Antoine Kingue"}
+        titleTemplate={`%s | ${PERSONAL.name}`}
       />
     </>
   );

@@ -1,4 +1,5 @@
 import { animated, useSpring } from "react-spring";
+import { PERSONAL } from "src/constants/personal";
 import styled from "styled-components";
 
 const calc = (x: number, y: number) => [
@@ -16,11 +17,7 @@ const VideoSkeleton = () => {
   }));
 
   return (
-    <A
-      href={"https://youtube.com/c/orionmood"}
-      target={"_blank"}
-      rel={"noopener"}
-    >
+    <A href={PERSONAL.sameAs.youtube} target={"_blank"} rel={"noopener"}>
       <Container
         onMouseMove={({
           clientX: x,

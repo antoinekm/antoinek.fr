@@ -1,5 +1,6 @@
 import Link from "@components/Link";
 import { NextSeo } from "next-seo";
+import { PERSONAL } from "src/constants/personal";
 
 import PageWrapper from "../components/PageWrapper";
 
@@ -34,16 +35,14 @@ const Etc = () => (
     <h2>{"📧 Contact"}</h2>
     <p>
       {"I'm most responsive through Linkedin DMs, you can "}
-      <Link href={"https://www.linkedin.com/in/antoinekm/"}>
-        {"click here"}
-      </Link>{" "}
+      <Link href={PERSONAL.sameAs.linkedin}>{"click here"}</Link>{" "}
       {"to DM me on Linkedin."}
     </p>
     <p>
       {
         "Otherwise you can also send me a message or call me directly via my phone number "
       }
-      <a href={"tel:+33699725358"}>{"+33 6 99 72 53 58"}</a>
+      <a href={`tel:${PERSONAL.phone}`}>{PERSONAL.phone}</a>
     </p>
     <h2>{"🧭 Other"}</h2>
     <ul>
