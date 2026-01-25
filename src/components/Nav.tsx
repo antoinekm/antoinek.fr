@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import ContentLoader from "react-content-loader";
 import { NAV_ITEMS } from "src/constants/nav-items";
+import { PERSONAL } from "src/constants/personal";
 import { doingAtom } from "src/states/lanyard";
 import styled from "styled-components";
 import useSound from "use-sound";
@@ -27,6 +28,7 @@ const Nav = () => {
   const [openOnMobile, setOpenOnMobile] = useState(false);
   const [presenceActive, setPresenceActive] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
+  const [showLightbox, setShowLightbox] = useState(false);
 
   const [doing] = useAtom(doingAtom);
 
@@ -41,8 +43,20 @@ const Nav = () => {
 
   return (
     <>
+      {showLightbox && (
+        <Lightbox onClick={() => setShowLightbox(false)}>
+          <LightboxImage src={PERSONAL.image} alt={PERSONAL.name} />
+        </Lightbox>
+      )}
       <MobileHeader>
-        <Title>{"Antoine Kingue"}</Title>
+        <TitleWithAvatar>
+          <NavAvatar
+            src={PERSONAL.image}
+            alt={PERSONAL.name}
+            onClick={() => setShowLightbox(true)}
+          />
+          <Title>{PERSONAL.name}</Title>
+        </TitleWithAvatar>
         {openOnMobile ? (
           <XIcon onClick={toggleMobileMenu} />
         ) : (
@@ -53,7 +67,14 @@ const Nav = () => {
         <Items>
           {!openOnMobile ? (
             <Row>
-              <Title>{"Antoine Kingue"}</Title>
+              <TitleWithAvatar>
+                <NavAvatar
+                  src={PERSONAL.image}
+                  alt={PERSONAL.name}
+                  onClick={() => setShowLightbox(true)}
+                />
+                <Title>{PERSONAL.name}</Title>
+              </TitleWithAvatar>
             </Row>
           ) : null}{" "}
           <Row>
@@ -139,19 +160,19 @@ const Nav = () => {
           <Icons>
             <Link
               aria-label={"LinkedIn - @antoinekm"}
-              href={"https://linkedin.com/in/antoinekm/"}
+              href={PERSONAL.sameAs.linkedin}
             >
               <LinkedinLogo />
             </Link>
             <Link
               aria-label={"GitHub - @AntoineKM"}
-              href={"https://github.com/AntoineKM"}
+              href={PERSONAL.sameAs.github}
             >
               <GitHubLogo />
             </Link>
             <Link
-              aria-label={"X - @AntoineKingue"}
-              href={"https://x.com/AntoineKingue"}
+              aria-label={`X - ${PERSONAL.twitter}`}
+              href={PERSONAL.sameAs.x}
             >
               <TwitterLogo />
             </Link>
@@ -262,6 +283,63 @@ const Row = styled.div`
 const Title = styled.div`
   font-weight: 600;
   padding: 10px 0px;
+`;
+
+const TitleWithAvatar = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+const NavAvatar = styled.img`
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+`;
+
+const Lightbox = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+  animation: fadeIn 0.2s ease-out;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+`;
+
+const LightboxImage = styled.img`
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8px;
+  object-fit: contain;
+  animation: scaleIn 0.2s ease-out;
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 `;
 
 const LocationIconWrapper = styled.div`
