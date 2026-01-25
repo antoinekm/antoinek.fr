@@ -1,6 +1,6 @@
 import Link from "@components/Link";
 import { NextSeo } from "next-seo";
-import { PERSONAL } from "src/constants/personal";
+import { PERSONAL } from "src/data/personal";
 
 import PageWrapper from "../components/PageWrapper";
 

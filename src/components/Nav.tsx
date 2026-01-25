@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import ContentLoader from "react-content-loader";
 import { NAV_ITEMS } from "src/constants/nav-items";
-import { PERSONAL } from "src/constants/personal";
+import { PERSONAL } from "src/data/personal";
 import { doingAtom } from "src/states/lanyard";
 import styled from "styled-components";
 import useSound from "use-sound";

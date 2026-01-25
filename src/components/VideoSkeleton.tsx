@@ -1,5 +1,5 @@
 import { animated, useSpring } from "react-spring";
-import { PERSONAL } from "src/constants/personal";
+import { PERSONAL } from "src/data/personal";
 import styled from "styled-components";
 
 const calc = (x: number, y: number) => [

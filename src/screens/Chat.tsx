@@ -5,7 +5,7 @@ import { ArrowRight, ArrowUp, ChevronLeft, ChevronRight } from "lucide-react";
 import { marked } from "marked";
 import { NextSeo, WebPageJsonLd } from "next-seo";
 import { useEffect, useRef, useState } from "react";
-import { PERSONAL } from "src/constants/personal";
+import { PERSONAL } from "src/data/personal";
 import styled from "styled-components";
 
 const SUGGESTED_MESSAGES = [

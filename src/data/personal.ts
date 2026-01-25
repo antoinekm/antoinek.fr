@@ -1,4 +1,4 @@
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://antoinek.fr";
+import { env } from "env.mjs";
 
 export const PERSONAL = {
   name: "Antoine Kingue",
@@ -16,7 +16,7 @@ export const PERSONAL = {
   description: "Developer, designer and youtuber",
   email: "contact@antoinek.fr",
   phone: "+33699725358",
-  url: APP_URL,
+  url: env.NEXT_PUBLIC_APP_URL,
   image: "/static/images/antoine-kingue.jpg",
   twitter: "@AntoineKingue",
   sameAs: {
@@ -25,6 +25,6 @@ export const PERSONAL = {
     x: "https://x.com/AntoineKingue",
     youtube: "https://www.youtube.com/@orionmood",
     crunchbase: "https://www.crunchbase.com/person/antoine-kingue",
-    tonightpass: "https://tonightpass.com/@antoinekingue",
+    tonightpass: "https://tonightpass.com/fr/@music",
   },
 };
