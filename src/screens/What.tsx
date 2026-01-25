@@ -8,7 +8,7 @@ const What = () => {
   return (
     <PageWrapper forceReadableWidth>
       <NextSeo
-        title={`Developer & digital Creator at ${compagnies[0].name} and ${compagnies[1].name}`}
+        title={`Developer & digital creator at ${compagnies[0].name} and ${compagnies[1].name}`}
         description={`Learn about my work at ${compagnies[0].name} and ${compagnies[1].name}. Discover projects and passion for technology and digital creation.`}
       />
 
