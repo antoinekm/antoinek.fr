@@ -1,9 +1,10 @@
 import { useRouter } from "next/router";
 import { DefaultSeo, LogoJsonLd } from "next-seo";
+import { Organization, Person, WithContext } from "schema-dts";
 
-import { PERSONAL } from "../constants/personal";
 import { certifications } from "../data/certifications";
 import compagnies from "../data/compagnies";
+import { PERSONAL } from "../data/personal";
 import { technologies } from "../data/technologies";
 
 const Head = () => {
@@ -20,9 +21,12 @@ const Head = () => {
     url.search = "";
   }
 
-  const currentEmployer = compagnies[0];
+  // Separate work positions, schools and founded companies
+  const workPositions = compagnies.filter((c) => !c.isSchool);
+  const schools = compagnies.filter((c) => c.isSchool);
+  const foundedCompanies = compagnies.filter((c) => c.isFounder);
 
-  const personJsonLd = {
+  const personJsonLd: WithContext<Person> = {
     "@context": "https://schema.org",
     "@type": "Person",
     "@id": `${websiteUrl}/#person`,
@@ -47,18 +51,18 @@ const Head = () => {
       "@type": "Country",
       name: "France",
     },
-    jobTitle: PERSONAL.jobTitle,
-    worksFor: {
+    jobTitle: ["Developer", "Designer", "YouTuber"],
+    worksFor: workPositions.map((company) => ({
       "@type": "Organization",
-      name: currentEmployer.name,
-      url: currentEmployer.url,
-    },
+      name: company.name,
+      url: company.url,
+    })),
     knowsAbout: technologies.map((tech) => ({
       "@type": "Thing",
       name: tech.name,
       description: tech.useCase,
     })),
-    hasCredential: certifications.slice(0, 10).map((cert) => ({
+    hasCredential: certifications.map((cert) => ({
       "@type": "EducationalOccupationalCredential",
       name: cert.title,
       credentialCategory: "certification",
@@ -69,14 +73,27 @@ const Head = () => {
       dateCreated: cert.year,
     })),
     sameAs: Object.values(PERSONAL.sameAs),
-    alumniOf: [
-      {
-        "@type": "EducationalOrganization",
-        name: "Need for School by CCI Normandie",
-        url: "https://needfor-school.com",
-      },
-    ],
+    alumniOf: schools.map((school) => ({
+      "@type": "EducationalOrganization",
+      name: school.name,
+      url: school.url,
+    })),
   };
+
+  const organizationsJsonLd: WithContext<Organization>[] = foundedCompanies.map(
+    (company) => ({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": `${company.url}/#organization`,
+      name: company.name,
+      url: company.url,
+      logo: `${websiteUrl}${company.image}`,
+      founder: {
+        "@type": "Person",
+        "@id": `${websiteUrl}/#person`,
+      },
+    }),
+  );
 
   return (
     <>
@@ -84,6 +101,13 @@ const Head = () => {
         type={"application/ld+json"}
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
+      {organizationsJsonLd.map((org) => (
+        <script
+          key={org["@id"] as string}
+          type={"application/ld+json"}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }}
+        />
+      ))}
 
       <LogoJsonLd logo={PERSONAL.image} url={websiteUrl} />
 
