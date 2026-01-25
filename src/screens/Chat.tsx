@@ -5,6 +5,7 @@ import { ArrowRight, ArrowUp, ChevronLeft, ChevronRight } from "lucide-react";
 import { marked } from "marked";
 import { NextSeo, WebPageJsonLd } from "next-seo";
 import { useEffect, useRef, useState } from "react";
+import { PERSONAL } from "src/constants/personal";
 import styled from "styled-components";
 
 const SUGGESTED_MESSAGES = [
@@ -177,7 +178,7 @@ export default function Home() {
         />
         <WebPageJsonLd
           description={"Developer, designer & youtuber based in Rouen, France"}
-          id={"https://antoinek.fr"}
+          id={PERSONAL.url}
         />
 
         <ChatContainer>
@@ -185,6 +186,7 @@ export default function Home() {
             {messages.map((m) => (
               <Message key={m.id} $role={m.role}>
                 <MessageSender>
+                  {m.role === "assistant" && <Avatar src={PERSONAL.image} />}
                   {m.role === "user" ? "You" : "Antoine AI"}
                 </MessageSender>
                 <MessageContent
@@ -194,13 +196,19 @@ export default function Home() {
             ))}
             {isLoading && (
               <Message $role={"assistant"}>
-                <MessageSender>{"Antoine AI"}</MessageSender>
+                <MessageSender>
+                  <Avatar src={PERSONAL.image} />
+                  {"Antoine AI"}
+                </MessageSender>
                 <TypingIndicator>{"thinking..."}</TypingIndicator>
               </Message>
             )}
             {error && (
               <Message $role={"assistant"}>
-                <MessageSender>{"Error"}</MessageSender>
+                <MessageSender>
+                  <Avatar src={PERSONAL.image} />
+                  {"Error"}
+                </MessageSender>
                 <ErrorMessage>
                   {error.message || "An error occurred. Please try again."}
                 </ErrorMessage>
@@ -233,7 +241,10 @@ export default function Home() {
                     <ArrowRight size={12} />
                   </AboutLink>
                   <ActionsContainer>
-                    <ChatModel>{"Antoine AI"}</ChatModel>
+                    <ChatModel>
+                      <AvatarSmall src={PERSONAL.image} />
+                      {"Antoine AI"}
+                    </ChatModel>
                     <SendButton
                       type={"submit"}
                       disabled={!input.trim() || isLoading}
@@ -357,10 +368,27 @@ const Message = styled.div<{ $role: string }>`
 `;
 
 const MessageSender = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-weight: 600;
   color: #ffffe3;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
+`;
+
+const Avatar = styled.img`
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+`;
+
+const AvatarSmall = styled.img`
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  object-fit: cover;
 `;
 
 const MessageContent = styled.div`
@@ -689,6 +717,9 @@ const ActionsContainer = styled.div`
 `;
 
 const ChatModel = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
   font-size: 12px;
   user-select: none;
 `;
