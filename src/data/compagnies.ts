@@ -17,6 +17,7 @@ const compagnies: Compagny[] = [
     description: "A platform for nightlife events and parties",
     url: "https://tonightpass.com",
     image: "/static/images/tonightpass-icon.jpg",
+    isFounder: true,
   },
   {
     name: "Expat Facilities",
@@ -43,6 +44,7 @@ const compagnies: Compagny[] = [
     role: "Student & Developer",
     url: "https://needfor-school.com",
     image: "/static/images/needforschool-icon.jpeg",
+    isSchool: true,
   },
   {
     name: "onRuntime",
@@ -52,6 +54,7 @@ const compagnies: Compagny[] = [
     role: "Co-founder & Developer",
     url: "https://onruntime.com",
     image: "/static/images/onruntime-icon.jpg",
+    isFounder: true,
   },
   {
     name: "Air France",

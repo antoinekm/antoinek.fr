@@ -7,6 +7,8 @@ export type Compagny = {
   description: string;
   url: string;
   image: string;
+  isSchool?: boolean;
+  isFounder?: boolean;
 };
 
 export type Technology = {
