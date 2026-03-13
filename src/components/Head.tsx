@@ -51,7 +51,33 @@ const Head = () => {
       "@type": "Country",
       name: "France",
     },
+    gender: "Male",
     jobTitle: ["Developer", "Designer", "YouTuber"],
+    knowsLanguage: ["fr", "en", "de"],
+    homeLocation: {
+      "@type": "Place",
+      name: "Rouen, France",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Rouen",
+        addressRegion: "Normandie",
+        addressCountry: "France",
+      },
+    },
+    hasOccupation: {
+      "@type": "Occupation",
+      name: "R&D Developer",
+      occupationLocation: {
+        "@type": "Country",
+        name: "France",
+      },
+    },
+    memberOf: {
+      "@type": "Organization",
+      name: "onRuntime",
+      url: "https://onruntime.com",
+    },
+    skills: technologies.map((tech) => tech.name),
     worksFor: workPositions.map((company) => ({
       "@type": "Organization",
       name: company.name,
