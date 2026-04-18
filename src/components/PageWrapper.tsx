@@ -31,6 +31,7 @@ const PageWrapper: React.FC<PageWrapperProps> = ({
 }: PageWrapperProps) => {
   return (
     <motion.div
+      id={"page-content"}
       initial={"initial"}
       animate={"in"}
       exit={"out"}
