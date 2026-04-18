@@ -49,6 +49,12 @@ const config = {
   compiler: {
     styledComponents: true,
   },
+  async rewrites() {
+    return [
+      { source: "/index.md", destination: "/api/md/index" },
+      { source: "/:slug.md", destination: "/api/md/:slug" },
+    ];
+  },
   async headers() {
     return [
       {
