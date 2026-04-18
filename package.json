@@ -24,6 +24,7 @@
     "next": "^15.0.0",
     "next-seo": "^6.6.0",
     "next-sitemap": "^4.2.3",
+    "node-html-parser": "^7.1.0",
     "papaparse": "^5.4.1",
     "react": "^19.0.0",
     "react-content-loader": "^7.0.0",
@@ -33,6 +34,7 @@
     "react-spring": "^10.0.0",
     "schema-dts": "^1.1.5",
     "styled-components": "^6.0.0",
+    "turndown": "^7.2.4",
     "url-loader": "^4.1.1",
     "urlcat": "^3.1.0",
     "use-sound": "^5.0.0",
@@ -44,6 +46,7 @@
   "devDependencies": {
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
+    "@types/turndown": "^5.0.6",
     "babel-plugin-styled-components": "^2.0.7",
     "eslint": "^8.47.0",
     "eslint-config-antoine": "^1.0.13",
