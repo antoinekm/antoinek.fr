@@ -61,6 +61,16 @@ const config = {
         source: "/:path*",
         headers: securityHeaders,
       },
+      {
+        source: "/",
+        headers: [
+          {
+            key: "Link",
+            value:
+              '</.well-known/api-catalog>; rel="api-catalog", </sitemap.xml>; rel="describedby", </index.md>; rel="service-doc"',
+          },
+        ],
+      },
     ];
   },
 };
