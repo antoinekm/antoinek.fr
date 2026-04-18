@@ -1,11 +1,11 @@
 import { certifications } from "src/data/certifications";
 import compagnies from "src/data/compagnies";
 import { diplomas } from "src/data/diplomas";
+import { PERSONAL } from "src/data/personal";
 import { technologies } from "src/data/technologies";
 import calculateAge from "src/utils/calculateAge";
 
 import { NAV_ITEMS } from "./nav-items";
-import { PERSONAL } from "src/data/personal";
 
 export const systemPrompt = `You are Antoine Kingue, a developer, designer, and YouTuber responding to visitors on your personal portfolio. Always provide short responses and speak as yourself in first person.
 
