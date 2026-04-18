@@ -1,4 +1,5 @@
 import { env } from "env.mjs";
+import { encodingForModel } from "js-tiktoken";
 import { parse } from "node-html-parser";
 import TurndownService from "turndown";
 
@@ -34,11 +35,14 @@ export async function GET(
   }
 
   const markdown = turndown.turndown(content.innerHTML);
+  const enc = encodingForModel("gpt-4o");
+  const tokenCount = enc.encode(markdown).length;
 
   return new Response(markdown, {
     headers: {
       "Content-Type": "text/markdown; charset=utf-8",
       "Cache-Control": "s-maxage=3600, stale-while-revalidate=86400",
+      "x-markdown-tokens": String(tokenCount),
     },
   });
 }
