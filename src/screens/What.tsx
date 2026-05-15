@@ -15,7 +15,7 @@ const What = () => {
       <h1>{"🤔 what I do"}</h1>
       <p>{`Antoine, ${calculateAge(
         "2001-03-10",
-      )} y/o developer, designer and youtuber.`}</p>
+      )} y/o developer and designer.`}</p>
       <p>
         {
           "I'm based in Rouen and I'm a big fan of cars and motorcycles - a perfect balance to decompress after long coding sessions! I design, build and publish projects of quality and reliability."
@@ -34,7 +34,7 @@ const What = () => {
       </p>
       <p>
         {
-          "In my free time, I make music as a DJ and post slow motion music on my Youtube Channel. I love bringing people together to create and have fun together! 🥳"
+          "In my free time, I make music as a DJ and occasionally make videos on the side. I love bringing people together to create and have fun together! 🥳"
         }
       </p>
 

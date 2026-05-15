@@ -171,13 +171,13 @@ export default function Home() {
     <PageWrapper noPadding>
       <Container>
         <NextSeo
-          title={"Developer, designer & youtuber based in Rouen, France"}
+          title={"Developer & designer based in Rouen, France"}
           description={
             "Connect with a skilled developer specializing in TypeScript, React and digital design. Ask questions about projects, experience, and expertise."
           }
         />
         <WebPageJsonLd
-          description={"Developer, designer & youtuber based in Rouen, France"}
+          description={"Developer & designer based in Rouen, France"}
           id={PERSONAL.url}
         />
 

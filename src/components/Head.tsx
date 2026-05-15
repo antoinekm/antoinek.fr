@@ -52,7 +52,7 @@ const Head = () => {
       name: "France",
     },
     gender: "Male",
-    jobTitle: ["Developer", "Designer", "YouTuber"],
+    jobTitle: ["Developer", "Designer"],
     knowsLanguage: ["fr", "en", "de"],
     homeLocation: {
       "@type": "Place",
