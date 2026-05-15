@@ -33,6 +33,11 @@ const securityHeaders = [
 
 /** @type {import('next').NextConfig} */
 const config = {
+  serverExternalPackages: [
+    "puppeteer",
+    "puppeteer-core",
+    "@sparticuz/chromium",
+  ],
   webpack(config) {
     config.module.rules.push({
       test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,

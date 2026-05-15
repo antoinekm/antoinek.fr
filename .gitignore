@@ -32,3 +32,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# temporary files
+tmp/
+
+# CV variants (cv.html is the committed template; cv-*.html are personal/ephemeral)
+public/cv-*.html

@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Antoine Kingue — CV</title>
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900,401,501,701,901&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              paper: "#FAF6E1",
+              ink: "#111111",
+            },
+            fontFamily: {
+              sans: ["Satoshi", "ui-sans-serif", "system-ui", "sans-serif"],
+              serif: ["EB Garamond", "ui-serif", "Georgia", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @page {
+        margin: 0;
+      }
+      body {
+        background: #faf6e1;
+      }
+      @media print {
+        #download-pdf {
+          display: none !important;
+        }
+        html, body {
+          background: #faf6e1 !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+        main {
+          max-width: none !important;
+          width: 210mm !important;
+          margin: 0 !important;
+        }
+      }
+      .badge {
+        display: inline-block;
+        box-sizing: border-box;
+        border: 1px solid #111;
+        border-radius: 11px;
+        padding: 2px 10px;
+        height: 22px;
+        line-height: 16px;
+        font-size: 11px;
+        white-space: nowrap;
+        vertical-align: middle;
+      }
+      .tech-badge {
+        display: inline-block;
+        border-left: 2px solid #111;
+        padding-left: 0.5rem;
+        font-size: 0.78rem;
+        line-height: 1.4;
+        vertical-align: middle;
+      }
+      .h-section {
+        font-family: "Satoshi", ui-sans-serif, system-ui, sans-serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+      .h-mini {
+        font-family: "Satoshi", ui-sans-serif, system-ui, sans-serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+      a {
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body class="text-ink font-sans antialiased">
+    <button
+      id="download-pdf"
+      type="button"
+      class="fixed top-4 right-4 z-50 inline-flex items-center gap-2 rounded-full border border-black bg-ink px-4 py-2 text-[0.8rem] font-medium text-paper shadow-sm transition hover:opacity-90 disabled:opacity-60 disabled:cursor-not-allowed"
+    >
+      <span id="download-pdf-label">⬇ Télécharger en PDF</span>
+    </button>
+
+    <main id="cv-root" class="mx-auto max-w-3xl bg-paper px-8 py-10">
+      <!-- Header -->
+      <header class="flex items-start gap-6">
+        <div class="shrink-0 flex flex-col items-center">
+          <img
+            src="/static/images/antoine-kingue.jpg"
+            alt="Antoine Kingue"
+            class="h-44 w-44 rounded-2xl object-cover ring-1 ring-black/10"
+          />
+          <div class="-mt-4 text-center relative z-10 whitespace-nowrap">
+            <span class="badge bg-ink text-paper">Rouen ↔ Paris</span>
+            <span class="badge bg-paper text-ink ml-1">Permis A1+B - Véhiculé</span>
+          </div>
+        </div>
+
+        <div class="flex-1 pt-1">
+          <h1 class="text-2xl font-semibold leading-tight">Antoine Kingue</h1>
+          <p class="text-2xl font-semibold leading-tight">
+            Expert en ingénierie informatique
+          </p>
+
+          <p class="mt-4 text-[0.85rem] leading-snug text-neutral-500">
+            Recherche un poste de
+            <span class="font-semibold">Directeur de projets informatique /
+              DSI / CTO</span>
+            à partir de septembre 2025
+          </p>
+
+          <div class="mt-3 border-l-2 border-black pl-3 text-[0.8rem] italic">
+            💡 Découvrez davantage d'informations sur mon profil et échangez avec mon
+            IA sur <a class="underline" href="https://antoinek.fr" target="_blank" rel="noopener noreferrer">antoinek.fr</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Professional summary -->
+      <p class="mt-6 text-[0.88rem] leading-relaxed">
+        14 ans dans le code, 7 ans à la tête d'équipes tech jusqu'à 10
+        développeurs. J'ai bâti et scalé des SaaS jusqu'à 50k+ utilisateurs,
+        puis industrialisé une production éditoriale SEO par agents IA,
+        propulsant mes clients de
+        <span class="font-semibold">0 à +2M d'impressions Google en moins de 3 mois</span>,
+        pour
+        <span class="font-semibold">98% de coûts en moins</span>. L'IA fait
+        partie de mon quotidien pour repenser les workflows tech et business.
+      </p>
+
+      <!-- Two-column body -->
+      <section class="mt-10 grid grid-cols-2 gap-x-10">
+        <!-- LEFT: Études + Stack -->
+        <div>
+          <h2 class="h-section">Mes études</h2>
+
+          <div class="mt-3 space-y-5 text-[0.85rem]">
+            <div>
+              <p class="text-[0.78rem]">2023 - 2025</p>
+              <h3 class="text-[0.98rem] font-semibold">
+                Master Expert en Ingénierie Informatique
+              </h3>
+              <p>Obtenu avec mention, pour atteindre l'excellence</p>
+              <p class="mt-1">
+                <span class="tech-badge">Need for School by CCI Normandie | Rouen</span>
+              </p>
+            </div>
+
+            <div>
+              <p class="text-[0.78rem]">2020 - 2022</p>
+              <h3 class="text-[0.98rem] font-semibold">Bachelor Développeur Web</h3>
+              <p>Obtenu, avec de solides bases pour de prochaines réalisations 😊</p>
+              <p class="mt-1">
+                <span class="tech-badge">Need for School by CCI Normandie | Rouen</span>
+              </p>
+            </div>
+
+            <div>
+              <p class="text-[0.78rem]">2017 - 2019</p>
+              <h3 class="text-[0.98rem] font-semibold">BAC STI2D</h3>
+              <p class="mt-1">
+                <span class="tech-badge">Lycée Blaise Pascal | Rouen</span>
+              </p>
+            </div>
+          </div>
+
+          <h2 class="h-section mt-8">Ce que j'utilise régulièrement</h2>
+
+          <div class="mt-3 space-y-3 text-[0.85rem]">
+            <div>
+              <p class="h-mini">IA &amp; Machine Learning</p>
+              <p>OpenAI, Anthropic, Gemini, Grok, DeepSeek, Perplexity, AI SDK, Vercel AI Gateway, MCP, TensorFlow</p>
+            </div>
+            <div>
+              <p class="h-mini">Backend &amp; Langages</p>
+              <p>TypeScript, Go, Rust, Python, PHP, Java</p>
+            </div>
+            <div>
+              <p class="h-mini">Frontend</p>
+              <p>React, Next.js, React Native, Ionic, Astro</p>
+            </div>
+            <div>
+              <p class="h-mini">Bases de données</p>
+              <p>PostgreSQL, MongoDB, Redis, MySQL</p>
+            </div>
+            <div>
+              <p class="h-mini">Frameworks &amp; Bibliothèques</p>
+              <p>NestJS, Fastify, Encore, GraphQL, Laravel, Symfony</p>
+            </div>
+            <div>
+              <p class="h-mini">Cloud &amp; DevOps</p>
+              <p>AWS, GCP, Azure, Vercel, Netlify, Docker, GitHub Actions</p>
+            </div>
+            <div>
+              <p class="h-mini">Protocoles</p>
+              <p>IPFS, Nostr, RTMP</p>
+            </div>
+          </div>
+
+          <h2 class="h-section mt-8">Certifications clés</h2>
+
+          <div class="mt-3 space-y-2 text-[0.85rem]">
+            <p>
+              <span class="tech-badge">GitHub Copilot Fundamentals · Microsoft Learn · 2025</span>
+            </p>
+            <p>
+              <span class="tech-badge">Next.js App Router Fundamentals · Vercel · 2025</span>
+            </p>
+            <p>
+              <span class="tech-badge">AWS Educate Compute &amp; Storage · AWS · 2025</span>
+            </p>
+            <p>
+              <span class="tech-badge">TOEIC · Need for School · 2022</span>
+            </p>
+          </div>
+
+          <p class="mt-4 text-[0.85rem]">
+            et plus de 20+ certifications listées sur
+            <a class="underline" href="https://antoinek.fr/where" target="_blank" rel="noopener noreferrer">mon site</a>.
+          </p>
+        </div>
+
+        <!-- RIGHT: Expériences -->
+        <div>
+          <h2 class="h-section">Mes expériences</h2>
+
+          <div class="mt-3 space-y-5 text-[0.85rem]">
+            <div>
+              <p class="text-[0.78rem]">2023 - Maintenant</p>
+              <h3 class="text-[0.98rem] font-semibold">R&amp;D Developer</h3>
+              <p>
+                Résolution de problématiques SEO client, création d'outils d'analyse
+                et d'automatisation IA. Génération de contenus stratégiques amenant
+                nos clients de
+                <span class="font-semibold">0 à +2M d'impressions Google en moins de 3 mois</span>.
+                Industrialisation de la chaîne éditoriale via des agents IA,
+                permettant une
+                <span class="font-semibold">réduction de 98% des coûts</span> de
+                production de contenus.
+              </p>
+              <p class="mt-1">
+                <span class="tech-badge">Arkée by Jaws | Levallois-Perret</span>
+              </p>
+            </div>
+
+            <div>
+              <p class="text-[0.78rem]">2022 - 2023</p>
+              <h3 class="text-[0.98rem] font-semibold">Lead Developer</h3>
+              <p>
+                Plateforme SaaS pour évènements nocturnes, management d'une équipe
+                <span class="font-semibold">jusqu'à 8 développeurs</span>,
+                développement technique et stratégie produit.
+                <span class="font-semibold">+1 000 événements</span> gérés,
+                <span class="font-semibold">+1,5M de pages</span> indexées et
+                <span class="font-semibold">+3M d'impressions Google</span>.
+              </p>
+              <p class="mt-1">
+                <span class="tech-badge">Tonight Pass | Rouen</span>
+              </p>
+            </div>
+
+            <div>
+              <p class="text-[0.78rem]">2021 - 2022</p>
+              <h3 class="text-[0.98rem] font-semibold">Lead Developer</h3>
+              <p>
+                Plateforme web &amp; mobile pour l'expatriation étudiante. Gestion
+                d'une équipe
+                <span class="font-semibold">jusqu'à 10 développeurs simultanés</span>,
+                accompagnement d'une quinzaine d'étudiants, partenariats avec
+                <span class="font-semibold">Neoma Business School</span>,
+                <span class="font-semibold">HEC</span>,
+                <span class="font-semibold">Axa</span>,
+                <span class="font-semibold">Spotahome</span> et
+                <span class="font-semibold">Lufthansa</span>.
+              </p>
+              <p class="mt-1">
+                <span class="tech-badge">Expat Facilities | Rouen</span>
+              </p>
+            </div>
+
+            <div>
+              <p class="text-[0.78rem]">2017 - 2023</p>
+              <h3 class="text-[0.98rem] font-semibold">Co-Founder &amp; Lead Developer</h3>
+              <p>
+                Création de projets à fort potentiel (50k+ utilisateurs), agencement
+                web, web design, gestion de projets et comptabilité/paie.
+              </p>
+              <p class="mt-1">
+                <span class="tech-badge">onRuntime Studio | Rouen</span>
+              </p>
+            </div>
+
+            <div>
+              <p class="text-[0.78rem]">2021</p>
+              <h3 class="text-[0.98rem] font-semibold">Developer</h3>
+              <p>
+                Social hub visant la réduction de l'empreinte carbone des utilisateurs,
+                développé en moins de 2 mois.
+              </p>
+              <p class="mt-1">
+                <span class="tech-badge">Challenge for Earth | Rouen</span>
+              </p>
+            </div>
+
+            <div>
+              <p class="text-[0.78rem]">2016</p>
+              <h3 class="text-[0.98rem] font-semibold">Digital Project Manager</h3>
+              <p>
+                Analyse réseau et participation aux réunions sur les technologies
+                embarquées au sein des équipes IT.
+              </p>
+              <p class="mt-1">
+                <span class="tech-badge">Air France | Orly</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quoi de plus -->
+      <section class="mt-12">
+        <div class="flex items-center gap-3 text-neutral-500">
+          <span class="h-px flex-1 bg-neutral-400"></span>
+          <span class="h-mini">Quoi de plus ?</span>
+          <span class="h-px flex-1 bg-neutral-400"></span>
+        </div>
+
+        <div class="mt-5 grid grid-cols-2 gap-x-10 gap-y-6">
+          <div class="space-y-4 text-[0.82rem]">
+            <p>
+              J'ai commencé à développer à l'âge de 11 ans et depuis je suis en
+              constante compétition avec moi même
+              (<a class="underline" href="https://wakatime.com/@antoinekm" target="_blank" rel="noopener noreferrer">voir mes statistiques depuis 2021</a>)
+            </p>
+            <p>
+              Pleinement investi dans chaque projet auquel je participe et passionné
+              d'open source
+              (<a class="underline" href="https://github.com/antoinekm" target="_blank" rel="noopener noreferrer">voir mes contributions à l'open source</a>)
+            </p>
+          </div>
+
+          <div>
+            <p class="h-mini text-right">Nous avons collaboré ensemble 🤝</p>
+            <div class="mt-3 text-right leading-7 space-x-1">
+              <a class="badge" href="https://www.decathlon.fr" target="_blank" rel="noopener noreferrer">Decathlon</a>
+              <a class="badge" href="https://www.caisse-epargne.fr" target="_blank" rel="noopener noreferrer">Caisse d'Epargne</a>
+              <a class="badge" href="https://www.qobra.co" target="_blank" rel="noopener noreferrer">Qobra</a>
+              <a class="badge" href="https://centralefillers.com" target="_blank" rel="noopener noreferrer">Centrale Fillers</a>
+              <a class="badge" href="https://www.pixpay.fr" target="_blank" rel="noopener noreferrer">Pixpay</a>
+              <a class="badge" href="https://www.cashbee.fr" target="_blank" rel="noopener noreferrer">Cashbee</a>
+              <a class="badge" href="https://www.grand-seiko.com" target="_blank" rel="noopener noreferrer">Grand Seiko</a>
+              <a class="badge" href="https://empiredrop.com/fr" target="_blank" rel="noopener noreferrer">Empire Drop</a>
+              <a class="badge" href="https://kincy.fr" target="_blank" rel="noopener noreferrer">Kincy</a>
+              <a class="badge" href="https://heuritech.com" target="_blank" rel="noopener noreferrer">Heuritech</a>
+              <a class="badge" href="https://www.piscine-center.net" target="_blank" rel="noopener noreferrer">Piscine Center</a>
+              <span class="badge">ENRI</span>
+              <a class="badge" href="https://sweetch.club" target="_blank" rel="noopener noreferrer">Zeway</a>
+              <a class="badge" href="https://forkit.community" target="_blank" rel="noopener noreferrer">ForkIt</a>
+              <a class="badge" href="https://www.flashoffice.fr" target="_blank" rel="noopener noreferrer">Flashoffice</a>
+              <a class="badge" href="https://www.decla.fr" target="_blank" rel="noopener noreferrer">Decla</a>
+              <a class="badge" href="https://deskare.io" target="_blank" rel="noopener noreferrer">Deskare</a>
+              <a class="badge" href="https://my-laser.fr" target="_blank" rel="noopener noreferrer">My Laser</a>
+              <a class="badge" href="https://www.anoxa.fr" target="_blank" rel="noopener noreferrer">Anoxa</a>
+              <a class="badge" href="https://lmnpinvest.com" target="_blank" rel="noopener noreferrer">LMNP Invest</a>
+              <a class="badge" href="https://qlower.com" target="_blank" rel="noopener noreferrer">Qlower</a>
+              <a class="badge" href="https://dillan.fr" target="_blank" rel="noopener noreferrer">Dillan</a>
+              <a class="badge" href="https://www.visiterouen.com" target="_blank" rel="noopener noreferrer">Rouen Tourisme</a>
+              <span class="badge">et bien d'autres…</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="mt-12 grid grid-cols-3 items-end gap-4 text-[0.82rem]">
+        <div class="space-x-3">
+          <a class="underline" href="https://github.com/antoinekm" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="underline" href="https://linkedin.com/in/antoinekm" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+        <div class="text-center">
+          <p>Je parle aussi 🇬🇧 &amp; je comprends 🇩🇪</p>
+          <p class="mt-1">
+            <a class="underline" href="tel:+33699725358">06 99 72 53 58</a> |
+            <a class="underline" href="mailto:contact@antoinek.fr">contact@antoinek.fr</a>
+          </p>
+        </div>
+        <div class="text-right">
+          <a class="underline" href="https://antoinek.fr" target="_blank" rel="noopener noreferrer">antoinek.fr</a>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      (function () {
+        const btn = document.getElementById("download-pdf");
+        const label = document.getElementById("download-pdf-label");
+
+        // Hide the button when the page is opened in print mode
+        // (used by the Puppeteer route to capture the CV without the button)
+        if (new URLSearchParams(window.location.search).get("print") === "1") {
+          if (btn) btn.style.display = "none";
+        }
+
+        if (btn) {
+          btn.addEventListener("click", async function () {
+            const original = label.textContent;
+            btn.disabled = true;
+            label.textContent = "Génération…";
+            try {
+              const res = await fetch("/api/cv-pdf", { method: "GET" });
+              if (!res.ok) throw new Error("HTTP " + res.status);
+              const blob = await res.blob();
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement("a");
+              a.href = url;
+              a.download = "Antoine-Kingue-CV.pdf";
+              document.body.appendChild(a);
+              a.click();
+              a.remove();
+              setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+            } catch (err) {
+              console.error(err);
+              alert("Échec de la génération du PDF. Réessaie ?");
+            } finally {
+              btn.disabled = false;
+              label.textContent = original;
+            }
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
