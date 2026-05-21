@@ -78,7 +78,9 @@ export async function GET(req: NextRequest) {
     if (browser) {
       try {
         await browser.close();
-      } catch {}
+      } catch {
+        // swallow close errors so the original failure is reported
+      }
     }
     console.error("[cv-pdf] failed:", err);
     return NextResponse.json(
