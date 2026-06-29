@@ -18,7 +18,7 @@ const What = () => {
       )} y/o developer and designer.`}</p>
       <p>
         {
-          "I'm based in Rouen and I'm a big fan of cars and motorcycles - a perfect balance to decompress after long coding sessions! I design, build and publish projects of quality and reliability."
+          "I'm based in Rouen and I'm a big fan of cars and motorcycles, which is a perfect balance to decompress after long coding sessions! I design, build and publish projects of quality and reliability."
         }
       </p>
       <p>
@@ -51,14 +51,14 @@ const What = () => {
       </p>
       <p>
         {
-          "The expertise I've gained at Arkée has been invaluable for my own projects too - for example, applying SEO strategies to Tonight Pass helped it grow from 0 to 100k impressions in less than 3 months, just by working on it during weekends."
+          "The expertise I've gained at Arkée has been invaluable for my own projects too; for example, applying SEO strategies to Tonight Pass helped it grow from 0 to 100k impressions in less than 3 months, just by working on it during weekends."
         }
       </p>
 
       <h2>{"About onRuntime Studio"}</h2>
       <p>
         {
-          "In 2015, I co-founded onRuntime Studio with friends - a development and design agency focused on bringing projects and teams of creators together. Over the years, we've delivered dozens of projects, from web applications to mobile apps and complete digital experiences."
+          "In 2015, I co-founded onRuntime Studio with friends, a development and design agency focused on bringing projects and teams of creators together. Over the years, we've delivered dozens of projects, from web applications to mobile apps and complete digital experiences."
         }
       </p>
       <p>
@@ -74,7 +74,7 @@ Tonight Pass simplifies the whole organization: find your teams and DJs, create 
       </p>
       <p>
         {
-          "This platform represents the intersection of my technical expertise and real-world problem solving - using adaptive algorithms and modern web technologies to revolutionize how people discover and experience nightlife events."
+          "This platform represents the intersection of my technical expertise and real-world problem solving, using adaptive algorithms and modern web technologies to revolutionize how people discover and experience nightlife events."
         }
       </p>
     </PageWrapper>

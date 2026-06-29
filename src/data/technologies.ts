@@ -30,7 +30,7 @@ export const technologies: Technology[] = [
     icon: TypescriptLogo,
     name: "TypeScript",
     type: "JavaScript Framework",
-    useCase: "Types for JavaScript - will save your life when projects expand.",
+    useCase: "Types for JavaScript, which will save your life when projects expand.",
   },
   {
     color: "#dea584",
