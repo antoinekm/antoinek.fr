@@ -1,3 +1,5 @@
+
+
 # antoinek.fr
 
 Personal website and portfolio for Antoine Kingue, built with Next.js and TypeScript.
@@ -26,6 +28,9 @@ pnpm install
 
 # Run development server
 pnpm dev
+
+# Lint code
+pnpm lint
 
 # Build for production
 pnpm build
