@@ -19,7 +19,7 @@
     "@vercel/analytics": "^1.5.0",
     "ai": "^4.1.46",
     "framer-motion": "^12.0.0",
-    "jotai": "^2.0.0",
+    "jotai": "^3.0.0",
     "js-tiktoken": "^1.0.21",
     "lucide-react": "^0.577.0",
     "marked": "^15.0.7",
